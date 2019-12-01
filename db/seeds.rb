@@ -16,11 +16,6 @@ File.open('./slang.txt').each_line do |line|
   p new_word
 end
 
-
-
-
-
-
 abc = ['A', 'B', 'C']
 
 words = []
