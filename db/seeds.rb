@@ -24,15 +24,13 @@ File.open('./slang.txt').each_line do |line|
   p new_word
 end
 
-abc = ['A', 'B', 'C']
+File.open('./german_slang.txt').each_line do |line|
+  next unless line.include?(':')
 
-words = []
-
-abc.each do |letter|
-  url = "https://www.urbandictionary.com/popular.php?character=#{abc}"
+  new_word = line.split(':')
+  p new_word
 end
 
-word = ['yolo','up in the air', 'crunch time']
 #category = ['']
 #url = "https://www.urbandictionary.com/category.php?category=#{category}"
 

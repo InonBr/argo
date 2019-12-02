@@ -1,4 +1,23 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(<%= image_path "argo_banner.png"%>);">
+  <div class="text-right m-3">
+  <%= link_to "Login!", new_user_session_path, class:"home-login" %>
+  </div>
 
-<h2>hello<h2>
+
+  <div class="home-wrapper">
+    <div class="title-wrapper">
+      <h2>Argo</h2>
+    </div>
+    <div class="slogan">
+
+    <%= image_tag "argo_logo.png", class: "argo" %>
+      <h3>Learn Slang and Up Your Cool !</h3>
+    </div>
+  </div>
+  <div class="learn-button">
+
+    <%= link_to "Learn!", languages_path, class:"home-login" %>
+  </div>
+</div>
+
+
