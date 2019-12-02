@@ -10,7 +10,9 @@ puts "kill users!"
 User.destroy_all
 puts "finished with user killing!"
 
+puts "create users"
 user_inon = User.new(username: 'the_awesome_squirrel', email: 'inon@gmail.com', password: '123456')
+puts "finished createing users"
 
 require 'json'
 require 'open-uri'
