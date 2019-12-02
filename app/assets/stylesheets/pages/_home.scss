@@ -9,12 +9,14 @@ font-style: normal;
 font-weight: normal;
 font-size: 73px;
 padding-bottom: 20px;
+padding-left: 100px;
 }
 
 
 .index-page h1 {
   text-align: center;
   font-family: Monteserrat;
+  padding-left: 80px;
 }
 
 .banner {
@@ -62,7 +64,7 @@ padding-bottom: 20px;
   background: linear-gradient(195.14deg, rgba(234, 109, 81, 0.6) 37.78%, rgba(255, 255, 255, 0) 64.67%), #F9ADA0;
 }
 
-a {
+.learn {
   color:black;
   font-style: normal;
   font-weight: 500;
@@ -89,3 +91,19 @@ a {
   padding: 1px 1px 1px 1px;
 }
 
+.home-login {
+  color: black;
+  text-decoration: none;
+  padding-left: 150px;
+  h1:hover {
+    color: black;
+    text-decoration: none;
+    opacity: 0.6;
+    padding: 20px;
+    left: 76.27%;
+    right: 9.07%;
+    top: 5.55%;
+    bottom: 90.55%;
+    padding-left: 300px;
+  }
+}
