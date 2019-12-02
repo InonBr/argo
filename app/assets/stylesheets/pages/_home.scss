@@ -1,1 +1,70 @@
 // Specific CSS for your home-page
+.index-page {
+  margin-top: 10vh;
+}
+
+.index-page h1 {
+  text-align: center;
+  font-family: Monteserrat;
+}
+
+.banner {
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+   text-align: center;
+
+  h1 {
+    font-weight: bold;
+    text-shadow:  2px 4px #FF69B4;
+    font-size: 70px;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    justify-content: center;
+    /*justify-content: center;*/
+     text-align: center;
+      display: flex;
+  }
+
+  p {
+  text-shadow:  2px 2px black;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  justify-content: center;
+   text-align: center;
+  }
+
+}
+
+.banner-content {
+  text-align: center;
+  color: white;
+}
+
+/*
+.search-bar {
+  width: 860px;
+  margin: 0 auto;
+}
+*/
+
+
+.btn2 {
+   text-align: center;
+   position: relative;
+   text-shadow:  2px 2px #ff0000;
+   background-color: #FF1493;
+
+}
+
+.btn2:hover {
+  background-color: #FF69B4;
+  text-shadow:  2px 2px #ff0000;
+  text-decoration: none;
+}
+
+// .btn2-content {
+// text-shadow:  2px 2px #ff0000;
+// }
