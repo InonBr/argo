@@ -1,2 +1,9 @@
-<h1>Languages#index</h1>
-<p>Find me in app/views/languages/index.html.erb</p>
+<h1>Explore a language</h1>
+
+<ul>
+  <% @languages.each do |language| %>
+  <li>
+    <%= button_to(language.name, language_path(update_languages_user_languages)) %>
+  </li>
+  <% end %>
+</ul>
