@@ -1,8 +1,6 @@
 <div class="banner" style="background-image: url(<%= image_path "argo_banner.png"%>);">
   <div class="text-right m-3">
-  <%= link_to new_user_session_path, class:"home-login" do %>
-    <h1>Login!</h1>
-  <% end %>
+  <%= link_to "Login!", new_user_session_path, class:"home-login" %>
   </div>
 
 
@@ -18,9 +16,7 @@
   </div>
   <div class="learn-button">
 
-    <%= link_to user_languages_path, class:"home-login" do %>
-    <a class="learn" href="/login">Learn!</a>
-    <% end %>
+    <%= link_to "Learn!", languages_path, class:"home-login" %>
   </div>
 </div>
 
