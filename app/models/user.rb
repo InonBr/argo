@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :words, through: :user_words, dependent: :destroy
   has_many :user_languages, dependent: :destroy
   has_many :languages, through: :user_languages, dependent: :destroy
-  has_many :quizs, dependent: :destroy
+  has_many :quizzes, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
