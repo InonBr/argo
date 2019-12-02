@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "kill users!"
+User.destroy_all
+puts "finished with user killing!"
+
+user_inon = User.new(username: 'the_awesome_squirrel', email: 'inon@gmail.com', password: '123456')
+
 require 'json'
 require 'open-uri'
 
