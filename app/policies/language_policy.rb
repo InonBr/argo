@@ -3,5 +3,11 @@ class LanguagePolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+ 
+
+
+  def show?
+    user
   end
+
 end

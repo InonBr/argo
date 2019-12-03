@@ -1,4 +1,5 @@
 class LanguagesController < ApplicationController
+
   def index
     @languages = policy_scope(Language)
   end

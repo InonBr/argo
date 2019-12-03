@@ -24,6 +24,8 @@ File.open('./slang.txt').each_line do |line|
 
   new_word = line.split(':')
   p new_word
+  word = Word.new()
+  word.save
 end
 
 File.open('./german_slang.txt').each_line do |line|
