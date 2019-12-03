@@ -1,5 +1,6 @@
 class UserWordPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
       scope.all
     end
