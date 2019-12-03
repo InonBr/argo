@@ -10,7 +10,11 @@ puts "kill users!"
 User.destroy_all
 puts "finished with user killing!"
 
+puts "create users"
 user_inon = User.new(username: 'the_awesome_squirrel', email: 'inon@gmail.com', password: '123456')
+puts "finished createing users"
+
+german = Language.create(name: "German")
 
 require 'json'
 require 'open-uri'
@@ -28,7 +32,8 @@ File.open('./german_slang.txt').each_line do |line|
   next unless line.include?(':')
 
   new_word = line.split(':')
-  p new_word
+  word = Word.create(original: new_word[0], translation: new_word[1], language: german)
+  p word.original
 end
 
 #category = ['']

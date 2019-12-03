@@ -8,6 +8,4 @@ class LanguagesController < ApplicationController
     @language = Language.find(params[:id])
     authorize @language
   end
-
-
 end

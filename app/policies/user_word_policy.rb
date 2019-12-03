@@ -1,13 +1,11 @@
-class LanguagePolicy < ApplicationPolicy
+class UserWordPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
- 
-
-
-  def show?
-    user
   end
 
+  def new?
+    true
+  end
 end

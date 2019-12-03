@@ -1,0 +1,36 @@
+.language-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 48px;
+  font-family: $body-font;
+  font-size: 30px;
+  color: #606060;
+  letter-spacing: -1px;
+  text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.language-img {
+  border-radius: 3px;
+  width: 45px;
+  margin-left: 25px;
+}
+
+.button-list {
+  margin-top: 22vh;
+  object-fit: contain;
+  li {
+    list-style-type: none;
+
+    &:nth-of-type(1) {
+      text-align: left;
+      margin-bottom: 6vh;
+    }
+
+    &:nth-of-type(2) {
+      text-align: center;
+    }
+  }
+
+}
