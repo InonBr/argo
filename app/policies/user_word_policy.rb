@@ -9,4 +9,8 @@ class UserWordPolicy < ApplicationPolicy
   def new?
     true
   end
+
+  def search?
+    new?
+  end
 end
