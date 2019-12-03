@@ -1,10 +1,11 @@
 class UserLanguagesController < ApplicationController
 
- before_action :authenticate_user!
-  include Pundit
 
-  after_action :verify_authorized, except: :index, unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
+  def show
+    @user_language = UserLanguage.find(params['id'])
+    authorize @user_language
+  end
 
   def update_languages
     #@languages = policy_scope(Language)
@@ -20,7 +21,7 @@ class UserLanguagesController < ApplicationController
       chosen_user_language.save
     else
       # create a new user language and make it active
-      UserLanguage.create(user: current_user, language: @language, active: true)
+      chosen_user_language = UserLanguage.create(user: current_user, language: @language, active: true)
     end
 
     other_languages = current_user.user_languages.where.not(language: @language)
@@ -33,6 +34,6 @@ class UserLanguagesController < ApplicationController
     end
 
 
-    redirect_to root_path
+    redirect_to user_language_path(chosen_user_language)
   end
 end

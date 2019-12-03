@@ -4,7 +4,7 @@
     <% @languages.each do |language| %>
     <li>
         <%= button_to(update_languages_user_languages_path(language_id: language.id), class: 'language-btn') do %>
-        <%= language.name.capitalize()  %>
+        <%= language.name.capitalize  %>
 
         <% end %>
     </li>
