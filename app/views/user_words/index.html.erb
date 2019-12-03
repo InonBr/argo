@@ -15,9 +15,23 @@
   </div>
 </div>
  -->
+  <div class="search-bar">
+
+    <form action="<%=  word_user_words_path(@word) %>" class="form-inline padded">
+      <input type="text" name='search' class="form-control border-radius input-lg" placeholder="keywords...">
+      <select name="" id="" class="form-control border-radius input-lg">
+        <option value="1">English</option>
+        <option value="2">German</option>
+      </select>
+      <input type="submit" class="btn2 btn-danger btn-lg" value="Search">
+    </form>
+  </div>
+
 <ul>
  <% @user_words.each do |user_word| %>
 
 <li><%= user_word.word.original %> - <%= user_word.word.translation  %></li>
+
  <% end %>
  </ul>
+

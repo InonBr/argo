@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :user_words, only: [:index, :new, :create]
   end
 
-
+  get '/search', to: 'user_words#search'
 end
