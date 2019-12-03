@@ -1,0 +1,8 @@
+<%= simple_form_for [@word, @user_word] do |f| %>
+<%= @word.original %>
+<%= text_field_tag "user_input" %>
+--------------------------
+<%= f.submit "I Knew" %>
+<%= f.submit "I didn't" %>
+
+<% end %>

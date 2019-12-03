@@ -9,4 +9,10 @@ Rails.application.routes.draw do
       post :update_languages
     end
   end
+
+  resources :words, only: [] do
+    resources :user_words, only: [:new, :create]
+  end
+
+
 end
