@@ -9,5 +9,9 @@ class LanguagePolicy < ApplicationPolicy
   def show?
     user
   end
+
+  def update_languages?
+    user
+  end
 end
 

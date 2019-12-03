@@ -1,6 +1,16 @@
 class UserLanguagesController < ApplicationController
+
+ before_action :authenticate_user!
+  include Pundit
+
+  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+
   def update_languages
+    #@languages = policy_scope(Language)
     @language = Language.find(params[:language_id])
+     @languages = policy_scope(Language)
+     authorize @language
 
     if current_user.languages.include?(@language)
       # make the user languge that he has active
@@ -21,6 +31,7 @@ class UserLanguagesController < ApplicationController
         l.save
       end
     end
+
 
     redirect_to root_path
   end
