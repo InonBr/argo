@@ -18,9 +18,11 @@ puts "finished createing users"
 puts "Destroy all languages and words"
 Word.destroy_all
 Language.destroy_all
+puts "finished estroying all languages and words"
 
 german = Language.create!(name: "German", flag_url: 'https://image.flaticon.com/icons/svg/555/555613.svg')
 english = Language.create!(name: "English", flag_url: 'https://image.flaticon.com/icons/svg/555/555526.svg')
+italian = Language.create!(name: "Italian", flag_url: 'https://image.flaticon.com/icons/svg/555/555668.svg')
 
 inon_learns_german = UserLanguage.new(user: user_inon, language: german, active: true)
 inon_learns_german.save!
