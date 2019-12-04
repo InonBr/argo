@@ -9,10 +9,12 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-    <%#= render 'shared/navbar' unless current_page?(root_path) %>
   <body style="background-image: url('<%= asset_url("background_of_app.png") %>')">
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="page-render">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+    <%= render 'shared/navbar' unless current_page?(root_path) %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

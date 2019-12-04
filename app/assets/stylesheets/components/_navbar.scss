@@ -1,12 +1,36 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.lateral-block-r, .lateral-block-l {
+  background-color: #F7F1E6;
+  height: 60px;
+  width: calc((100vw - 82px)/2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.lateral-block-r {
+  border-top-right-radius: 16px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.lateral-block-l {
+  border-top-left-radius: 16px;
+}
+
+.center-block {
+  background-color: #F7F1E6;
+  height: 60px;
+  width: 82px;
+  img {
+    border: 12px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: -43px;
+  }
+}
+
+.navbar {
+  padding: 0;
+}
+
+.page-render {
+  min-height: calc(100vh - 100px);
 }
