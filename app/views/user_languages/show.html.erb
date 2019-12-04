@@ -5,18 +5,16 @@
 
 
 <div class="start_practice_main container">
-  <div class= "quiz">
-    <div class="col-4"></div>
-    <%= link_to 'quiz', starter_quizzes_path,  class: "link" %>
-    <div class="col-4"></div>
-  </div>
-  <% if @random_word_in_user_language %>
-  <div class= "flashcard">
-    <div class="col-4"></div>
-    <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
-    <div class="col-4"></div>
-  </div>
-  <% end %>
+    <div class= "flashcard">
+      <div class="col-4"></div>
+        <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
+      <div class="col-4"></div>
+    </div>
+    <div class= "quiz">
+      <div class="col-4"></div>
+        <%= link_to_if @can_take_quiz, 'quiz', starter_quizzes_path,  class: "link" %>
+      <div class="col-4"></div>
+    </div>
 </div>
 
 
