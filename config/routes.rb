@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       post :answer
     end
   end
-  
+
+  get '/profile', to: "dashboards#profile"
   get '/search', to: 'user_words#search'
 end

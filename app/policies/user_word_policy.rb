@@ -10,6 +10,10 @@ class UserWordPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
   def search?
     new?
   end

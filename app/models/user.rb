@@ -16,4 +16,11 @@ class User < ApplicationRecord
    #         allow_blank: false,
     #        length: { minimum: 3 }
 
+
+  def score_of(language)
+    language.quizzes.where(user: self).pluck(:score).sum
+  end
+
+  # def time_spents_in_a_language
+  # end
 end
