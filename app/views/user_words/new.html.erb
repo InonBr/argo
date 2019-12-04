@@ -1,9 +1,24 @@
-<%= simple_form_for [@word, @user_word] do |f| %>
-  <%= @word.original %>
-  <%= text_field_tag "user_input" %>
-  <%= f.input :knew, as: :hidden %>
-  --------------------------
-  <%= f.button :submit, value: "I Knew", data: { knew: true } %>
-  <%= f.button :submit, value:  "I didn't", data: { knew: false } %>
-
-<% end %>
+<div class="page">
+  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flipper">
+      <div class="front">
+        <div class="content">
+          <%= simple_form_for [@word, @user_word] do |f| %>
+            <h1><%= @word.original %></h1>
+            <%= text_area_tag "user_input", nil, class: 'guess-input' %>
+            <a href="" class="btn btn-primary flip">Show me the truth!</a>
+        </div>
+      </div>
+      <div class="back">
+        <div class="content">
+            <h1><%= @word.original %></h1>
+            <p> <%= @word.translation %></p>
+            <%= f.input :knew, as: :hidden %>
+            <%= f.button :submit, value: "I Knew", data: { knew: true }, class: 'btn btn-primary' %>
+            <%= f.button :submit, value:  "I didn't", data: { knew: false }, class: 'btn btn-primary'  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

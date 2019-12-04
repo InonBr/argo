@@ -1,0 +1,113 @@
+body {
+  background-color: #ABD6F3;
+  font-size: 20px;
+}
+
+h1 {
+  padding: 0; margin: 0;
+}
+
+p {
+  padding: 0;
+  margin-top: 1.3em;
+  line-height: 1.4;
+}
+
+/* entire container, keeps perspective */
+
+.page {
+  width: 100%;
+  // position: absolute;
+  //   top: 50%;
+  //   left: 0;
+  // transform: translateY(-50%);
+  height: 75vh;
+  margin-top: 25vh;
+}
+
+.flip-container {
+  margin: 0 auto;
+  perspective: 1000px;
+}
+  /* flip the pane when hovered */
+  // .flip-container:hover .flipper, .flip-container.hover .flipper {
+  //   transform: rotateY(180deg);
+  // }
+
+.flip-container, .front, .back {
+  width: 50vh;
+  // height: 40vh;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+  // background-color: #fff;
+  box-shadow: 1px 1px 5px #333;
+  background-color: lightgray;
+  color: black;
+  // background: linear-gradient(to bottom,
+  //   white 0, white 20%,
+  //   lightblue 0, lightblue 21.2%,
+  //   white 0, white 30%,
+  //   pink 0, pink 30.3%,
+  //   white 0, white 40%,
+  //   pink 0, pink 40.3%,
+  //   white 0, white 50%,
+  //   pink 0, pink 50.3%,
+  //   white 0, white 60%,
+  //   pink 0, pink 60.3%,
+  //   white 0, white 70%,
+  //   pink 0, pink 70.3%,
+  //   white 0, white 80%,
+  //   pink 0, pink 80.3%,
+  //   white 0, white 90%,
+  //   pink 0, pink 90.3%,
+  //   white 0
+  // );
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+  // background-color: #fefefe;
+  background-color: lightgray;
+  box-shadow: 1px 1px 5px #333;
+}
+
+.content {
+  padding: 1em;
+}
+
+.flip-action {
+    transform: rotateY(180deg);
+}
+
+.flip-card {
+  transform: rotateY(180deg);
+}
+
+.red-border {
+  border: 1px solid red;
+}
+
+#user_input {
+  height: 20vh;
+}
