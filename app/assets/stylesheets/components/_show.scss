@@ -1,0 +1,25 @@
+.quiz, .flashcard {
+
+background: linear-gradient(197.85deg,
+rgba(234, 109, 81, 0.6) 37.78%,
+rgba(255, 255, 255, 0) 64.67%), #F9ADA0;
+
+font-size: 21px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+padding: 20px 0px 20px 0px;
+align-items: center;
+margin-top: 100px;
+
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+
+}
+
+.start_practice_main{
+  margin-top: 150px;
+}
