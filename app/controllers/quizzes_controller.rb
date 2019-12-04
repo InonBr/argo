@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  after_action :session_count, :question_counter_session, only: [:create]
+  after_action :session_count, :question_counter_session, :right_answers_session, only: [:create]
 
   def session_count
     session[:counter] = 0
@@ -7,6 +7,10 @@ class QuizzesController < ApplicationController
 
   def question_counter_session
     session[:question_counter] = 0
+  end
+
+  def right_answers_session
+    session[:right_questions_counter] = 0
   end
 
   def starter
@@ -17,11 +21,9 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.create(user: current_user, language: current_user.user_languages.find_by(active: true).language)
     authorize @quiz
     redirect_to questions_quiz_path(@quiz)
-    @question_number = 0
   end
 
   def questions
-    # raise
     @all_answers = []
 
     @quiz = Quiz.find(params[:id])
@@ -33,6 +35,7 @@ class QuizzesController < ApplicationController
     @true_answer = @word.translation
     @all_answers << [@answers, @true_answer]
     @all_answers.flatten!.shuffle!
+    @right_answers = @quiz.score
   end
 
   def answer
@@ -48,6 +51,7 @@ class QuizzesController < ApplicationController
        @user_word = @question.user_words.find_by(user: current_user)
        @user_word.quizzed = true
        @user_word.save
+       @right_answers = right_answers_counter
     end
 
     counter
@@ -71,5 +75,9 @@ class QuizzesController < ApplicationController
 
   def question_counter
     session[:question_counter] += 1
+  end
+
+  def right_answers_counter
+    session[:right_questions_counter] += 1
   end
 end
