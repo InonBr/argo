@@ -12,10 +12,18 @@ puts "finished with user killing!"
 
 puts "create users"
 user_inon = User.new(username: 'the_awesome_squirrel', email: 'inon@gmail.com', password: '123456')
+user_inon.save
 puts "finished createing users"
 
-german = Language.create(name: "German")
+puts "Destroy all languages and words"
+Word.destroy_all
+Language.destroy_all
 
+german = Language.create!(name: "German", flag_url: 'https://image.flaticon.com/icons/svg/555/555613.svg')
+english = Language.create!(name: "English", flag_url: 'https://image.flaticon.com/icons/svg/555/555526.svg')
+
+inon_learns_german = UserLanguage.new(user: user_inon, language: german, active: true)
+inon_learns_german.save!
 require 'json'
 require 'open-uri'
 
@@ -32,6 +40,12 @@ File.open('./german_slang.txt').each_line do |line|
   new_word = line.split(':')
   word = Word.create(original: new_word[0], translation: new_word[1], language: german)
   p word.original
+
+end
+
+puts "Creating user words for Inon where knew=true --- for quiz"
+Word.all.sample(10).each do |word|
+  UserWord.create(word: word, user: user_inon, knew: true)
 end
 
 #category = ['']
