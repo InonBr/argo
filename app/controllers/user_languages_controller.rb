@@ -1,7 +1,4 @@
 class UserLanguagesController < ApplicationController
-
-
-
   def show
     @user_language = UserLanguage.find(params['id'])
     authorize @user_language
