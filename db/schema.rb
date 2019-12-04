@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_092004) do
+ActiveRecord::Schema.define(version: 2019_12_03_142638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_092004) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer "score"
+    t.integer "score", default: 0
     t.bigint "user_id"
     t.bigint "language_id"
     t.datetime "created_at", null: false
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2019_12_02_092004) do
   end
 
   create_table "user_words", force: :cascade do |t|
-    t.boolean "quizzed"
-    t.boolean "removed"
-    t.boolean "knew"
+    t.boolean "quizzed", default: false
+    t.boolean "removed", default: false
+    t.boolean "knew", default: false
     t.bigint "user_id"
     t.bigint "word_id"
     t.datetime "created_at", null: false

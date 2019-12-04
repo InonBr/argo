@@ -1,8 +1,7 @@
 class Language < ApplicationRecord
-  has_many :words
-  has_many :user_languages
-  has_many :users, through: :users
-  has_many :quizzes
+  has_many :words, dependent: :destroy
+  has_many :user_languages, dependent: :destroy
+  has_many :quizzes, dependent: :destroy
 
   validates :flag_url, presence: true
 end

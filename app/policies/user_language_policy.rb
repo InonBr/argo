@@ -13,4 +13,3 @@ class UserLanguagePolicy < ApplicationPolicy
     true
   end
 end
-
