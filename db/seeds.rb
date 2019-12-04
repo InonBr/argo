@@ -29,7 +29,7 @@ inon_learns_german.save!
 require 'json'
 require 'open-uri'
 
-File.open('./slang.txt').each_line do |line|
+File.open('./lib/assets/slangs/slang.txt').each_line do |line|
   next unless line.include?(':')
 
   new_words = line.split(':')
@@ -42,7 +42,7 @@ File.open('./slang.txt').each_line do |line|
 
 end
 
-File.open('./german_slang.txt').each_line do |line|
+File.open('./lib/assets/slangs/german_slang.txt').each_line do |line|
   next unless line.include?(':')
 
   new_word = line.split(':')
