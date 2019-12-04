@@ -2,7 +2,7 @@ class UserLanguagesController < ApplicationController
   def show
     @user_language = UserLanguage.find(params['id'])
     authorize @user_language
-    @random_word_in_user_language = Word.where(language_id: @user_language.id).sample
+    @random_word_in_user_language = Word.random_unseen(current_user)
   end
 
   def update_languages
