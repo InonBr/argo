@@ -30,8 +30,14 @@ require 'open-uri'
 File.open('./slang.txt').each_line do |line|
   next unless line.include?(':')
 
-  new_word = line.split(':')
-  p new_word
+  new_words = line.split(':')
+  word = Word.new(original: new_words[0], translation: new_words[1], language: english)
+  word.save!
+
+#  user_wordslist.each do |word, definition|
+#  userwords.create( word: word, definition: definition )
+#end
+
 end
 
 File.open('./german_slang.txt').each_line do |line|
@@ -40,7 +46,6 @@ File.open('./german_slang.txt').each_line do |line|
   new_word = line.split(':')
   word = Word.create(original: new_word[0], translation: new_word[1], language: german)
   p word.original
-
 end
 
 puts "Creating user words for Inon where knew=true --- for quiz"

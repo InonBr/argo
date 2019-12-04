@@ -1,5 +1,6 @@
 class UserWordPolicy < ApplicationPolicy
   class Scope < Scope
+
     def resolve
       scope.all
     end
@@ -7,5 +8,9 @@ class UserWordPolicy < ApplicationPolicy
 
   def new?
     true
+  end
+
+  def search?
+    new?
   end
 end

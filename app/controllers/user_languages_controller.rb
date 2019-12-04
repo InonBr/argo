@@ -1,6 +1,17 @@
 class UserLanguagesController < ApplicationController
+
+
+
+  def show
+    @user_language = UserLanguage.find(params['id'])
+    authorize @user_language
+  end
+
   def update_languages
+    #@languages = policy_scope(Language)
     @language = Language.find(params[:language_id])
+     @languages = policy_scope(Language)
+     authorize @language
 
     if current_user.languages.include?(@language)
       # make the user languge that he has active
@@ -24,6 +35,7 @@ class UserLanguagesController < ApplicationController
       end
     end
 
-    redirect_to root_path
+
+    redirect_to user_language_path(chosen_user_language)
   end
 end

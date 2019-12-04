@@ -5,6 +5,10 @@ class UserLanguagePolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    record.user ==  user
+  end
+
   def update_languages?
     true
   end
