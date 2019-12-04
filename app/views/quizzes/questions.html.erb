@@ -1,0 +1,20 @@
+<h1>
+  Quiz
+  <small>Question <%= @question_number %></small>
+</h1>
+
+<p>What dose the slang "<%= @word.original %>" means?</p>
+<%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
+  <%= f.input :question, as: :hidden, input_html: { value: @word.original } %>
+  <%= f.input :answer, as: :hidden %>
+<% end %>
+
+<div class="quiz-answers">
+  <% @all_answers.each do |answer| %>
+    <div>
+      <span class="btn quiz-answer" data-answer="<%= answer %>"><%= answer %></span>
+    </div>
+  <% end %>
+</div>
+
+

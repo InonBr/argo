@@ -1,17 +1,15 @@
-class LanguagePolicy < ApplicationPolicy
+class UserLanguagePolicy < ApplicationPolicy
   class Scope < Scope
-
     def resolve
       scope.all
     end
   end
 
   def show?
-    user
+    record.user ==  user
   end
 
   def update_languages?
-    user
+    true
   end
 end
-

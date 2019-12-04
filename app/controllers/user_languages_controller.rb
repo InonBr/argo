@@ -1,6 +1,15 @@
 class UserLanguagesController < ApplicationController
+  def show
+    @user_language = UserLanguage.find(params['id'])
+    authorize @user_language
+    @random_word_in_user_language = Word.where(language_id: @user_language.id).sample
+  end
+
   def update_languages
+    #@languages = policy_scope(Language)
     @language = Language.find(params[:language_id])
+     @languages = policy_scope(Language)
+     authorize @language
 
     if current_user.languages.include?(@language)
       # make the user languge that he has active
@@ -8,9 +17,11 @@ class UserLanguagesController < ApplicationController
       chosen_user_language = current_user.user_languages.find_by(language: @language)
       chosen_user_language.active = true
       chosen_user_language.save
+      authorize chosen_user_language
     else
       # create a new user language and make it active
-      UserLanguage.create(user: current_user, language: @language, active: true)
+      @user_language = UserLanguage.create(user: current_user, language: @language, active: true)
+      authorize @user_language
     end
 
     other_languages = current_user.user_languages.where.not(language: @language)
@@ -21,7 +32,6 @@ class UserLanguagesController < ApplicationController
         l.save
       end
     end
-
-    redirect_to root_path
+    redirect_to user_language_path(chosen_user_language)
   end
 end

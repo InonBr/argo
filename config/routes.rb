@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'quiz/show'
   devise_for :users
   root to: 'pages#home'
 
@@ -16,5 +17,16 @@ Rails.application.routes.draw do
     resources :user_words, only: [:index, :new, :create]
   end
 
+  resources :quizzes, only: [:show, :create] do
+    collection do
+      get :starter
+    end
+    member do
+      get :questions
+      post :answer
+    end
+  end
+
+  get '/profile', to: "dashboards#profile"
   get '/search', to: 'user_words#search'
 end
