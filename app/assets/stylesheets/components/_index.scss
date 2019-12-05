@@ -5,3 +5,12 @@
 @import "headers";
 @import "fas";
 @import "flashcard";
+
+.d-flex2 {
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  background-color: #7DDB34;;
+  border-radius: 15px;
+  text-align: center;
+}
