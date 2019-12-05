@@ -6,6 +6,13 @@
 @import "fas";
 @import "flashcard";
 
+//nav bar sticky, definition truncate, margin width within flexbox
+
+.d-flex {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .d-flex2 {
   flex-direction: column;
   align-items: flex-start;
