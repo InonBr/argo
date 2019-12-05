@@ -6,16 +6,17 @@
 
 
 <div class="start_practice_main container">
-    <div class= "flashcard">
-      <div class="col-4"></div>
-        <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
-      <div class="col-4"></div>
-    </div>
-    <div class= "quiz">
-      <div class="col-4"></div>
-        <%= link_to_if @can_take_quiz, 'quiz', starter_quizzes_path,  class: "link" %>
-      <div class="col-4"></div>
-    </div>
+  <div class= "flashcard">
+    <div class="col-4"></div>
+
+    <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
+    <div class="col-4"></div>
+  </div>
+  <div class= "quiz">
+    <div class="col-4"></div>
+    <%= link_to_if @can_take_quiz, 'quiz', starter_quizzes_path,  class: "link" %>
+    <div class="col-4"></div>
+  </div>
 </div>
 
 

@@ -33,7 +33,9 @@ class QuizzesController < ApplicationController
     @user_word = UserWord.current_language(current_user)
                          .where(user_words: { user: current_user, quizzed: false, removed: false, knew: true })
                          .order('RANDOM()').first
+
     @word = @user_word.word
+
     @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
     @true_answer = @word.translation
     @all_answers << [@answers, @true_answer]
