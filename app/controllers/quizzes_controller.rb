@@ -34,15 +34,7 @@ class QuizzesController < ApplicationController
                          .where(user_words: { user: current_user, quizzed: false, removed: false, knew: true })
                          .order('RANDOM()').first
 
-    # This might make a word appear more than once on the quiz
-
-    @user_word ? @word = @user_word.word : @word = UserWord.where(user: current_user).sample.word
-
-    ##########################################################
-
-    #@word = @user_word.word
-
-    # Code from before above ^^^
+    @word = @user_word.word
 
     @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
     @true_answer = @word.translation
