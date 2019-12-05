@@ -22,7 +22,7 @@ class UserLanguagesController < ApplicationController
     else
       # create a new user language and make it active
       chosen_user_language = UserLanguage.create(user: current_user, language: @language, active: true)
-      authorize @user_language
+      authorize chosen_user_language
     end
 
     other_languages = current_user.user_languages.where.not(language: @language)
