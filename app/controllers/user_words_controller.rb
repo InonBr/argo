@@ -34,7 +34,7 @@ class UserWordsController < ApplicationController
     authorize @user_word
     @user_word.save
 
-    next_word = [Word.random_unseen(current_user), UserWord.where(knew: false).order('RANDOM()').first].sample
+    next_word = [Word.random_unseen(current_user), UserWord.current_language(current_user).where(knew: false).order('RANDOM()').first.word].sample
 
     redirect_to new_word_user_word_path(next_word)
   end
