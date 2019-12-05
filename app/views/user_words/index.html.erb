@@ -17,7 +17,7 @@
  -->
   <div class="search-bar">
 
-    <form action="<%=  word_user_words_path(@word) %>" class="form-inline padded">
+    <form action="<%=  user_words_path %>" class="form-inline padded">
       <input type="text" name='search' class="form-control border-radius input-lg" placeholder="keywords...">
       <select name="language"  class="form-control border-radius input-lg">
         <option value="English">English</option>
@@ -27,11 +27,12 @@
     </form>
   </div>
 
-<ul>
- <% @user_words.each do |user_word| %>
-
-<li><%= user_word.word.original %> - <%= user_word.word.translation  %></li>
+<!-- <ul> -->
+  <div class="list">
+<% @user_words.each do |user_word| %>
+<div class="d-flex2 justify-content-center"> <strong> <%= user_word.word.original %> <br> - <%= user_word.word.translation  %></div>
 
  <% end %>
- </ul>
-
+ </div>
+<!--  </ul>
+ -->
