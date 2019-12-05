@@ -28,8 +28,9 @@ class QuizzesController < ApplicationController
 
     @quiz = Quiz.find(params[:id])
     authorize @quiz
+
     @question_number = question_counter
-    @user_word = UserWord.where(user: current_user, quizzed: false, removed: false, knew: true).order('RANDOM()').first
+    @user_word = UserWord.joins(:word).where(user_words: { user: current_user, quizzed: false, removed: false, knew: true }, words: { language: current_user.user_languages.find_by(active: true) }).order('RANDOM()').first
     @word = @user_word.word
     @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
     @true_answer = @word.translation
