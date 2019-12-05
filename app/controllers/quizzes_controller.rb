@@ -36,7 +36,7 @@ class QuizzesController < ApplicationController
 
     # This might make a word appear more than once on the quiz
 
-    @user_word ? @word = @user_word.word : @word = UserWord.where(user: current_user, language: current_language).sample
+    @user_word ? @word = @user_word.word : @word = UserWord.where(user: current_user).sample.word
 
     ##########################################################
 
