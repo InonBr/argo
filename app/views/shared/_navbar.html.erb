@@ -1,7 +1,9 @@
 <div class='navbar d-flex'>
   <div class="lateral-block-r">
 
-    <%= link_to('#') do %>
+    <% path = controller.class.to_s.downcase == "quizzescontroller"? '#' : url_for(:back) %>
+
+     <%=  link_to(path) do %>
       <i class="fas fa-arrow-circle-left"></i>
     <% end %>
 
@@ -10,16 +12,23 @@
     <% end %>
 
   </div>
-  <div class="center-block">
-    <%= image_tag "awesome.png", alt: "awesome", class: "awesome-btn" %>
-  </div>
+    <div class="center-block">
+      <%=
+        user_words_list = UserLanguage.where(active: true)
+        path = user_words_list.empty? ? '#' : user_words_list.first
+        link_to user_language_path(path) do
+          image_tag "awesome.png", alt: "awesome", class: "awesome-btn"
+        end
+      %>
+
+    </div>
   <div class="lateral-block-l">
 
-    <%= link_to('#') do %>
+    <%= link_to(languages_path) do %>
       <i class="fas fa-flag"></i>
     <% end %>
 
-    <%= link_to('#') do %>
+    <%= link_to(profile_path) do %>
       <i class="fas fa-user-circle"></i>
     <% end %>
 
