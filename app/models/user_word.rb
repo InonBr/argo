@@ -4,5 +4,5 @@ class UserWord < ApplicationRecord
 
   validates :word, uniqueness: { scope: :user }
 
-  scope :current_language, ->(user) { joins(:word).where(words: { language_id: user.user_languages.find_by(active: true).language.id }) }
+  scope :current_language, ->(user) { joins(:word).where(words: { language: user.user_languages.find_by(active: true).language }) }
 end
