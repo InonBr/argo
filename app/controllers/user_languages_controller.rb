@@ -9,8 +9,8 @@ class UserLanguagesController < ApplicationController
   def update_languages
     #@languages = policy_scope(Language)
     @language = Language.find(params[:language_id])
-     @languages = policy_scope(Language)
-     authorize @language
+    @languages = policy_scope(Language)
+    authorize @language
 
     if current_user.languages.include?(@language)
       # make the user languge that he has active
@@ -21,7 +21,7 @@ class UserLanguagesController < ApplicationController
       authorize chosen_user_language
     else
       # create a new user language and make it active
-      @user_language = UserLanguage.create(user: current_user, language: @language, active: true)
+      chosen_user_language = UserLanguage.create(user: current_user, language: @language, active: true)
       authorize @user_language
     end
 

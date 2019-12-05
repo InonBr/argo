@@ -8,7 +8,7 @@ class UserWordsController < ApplicationController
 
       # searches for both original and efintion for both languages,
       # might want to think about only searhching definiton when the language is german
-Word.first
+      Word.first
       @user_words = current_user.user_words.select do |w|
         search.casecmp(w.word.original).zero? || w.word.translation.include?(search)
       end
@@ -34,7 +34,9 @@ Word.first
     authorize @user_word
     @user_word.save
 
-    redirect_to new_word_user_word_path(Word.random_unseen(current_user))
+    next_word = [Word.random_unseen(current_user), UserWord.where(knew: false).order('RANDOM()').first].sample
+
+    redirect_to new_word_user_word_path(next_word)
   end
 
   private
