@@ -1,20 +1,22 @@
 class UserWordsController < ApplicationController
 
   def index
+
     @user_words = policy_scope(UserWord)
     @word = params['word_id']
+
     unless params['search'].nil?
       search = params['search']
-
-      # searches for both original and efintion for both languages,
-      # might want to think about only searhching definiton when the language is german
-      Word.first
-      @user_words = current_user.user_words.select do |w|
-        search.casecmp(w.word.original).zero? || w.word.translation.include?(search)
+      language = params['language']
+                # my_words IS A METHOD IN THE USER MODEL
+      @user_words = current_user.my_words(language).select do |w|
+        if language == 'English'
+          search.casecmp(w.word.original).zero? || w.word.translation.include?(search)
+        else
+          w.word.translation.downcase.include?(search.downcase)
+        end
       end
     end
-    #@words = policy_scope(Word.all)
-    #@user_word = User_word.all
   end
 
   def new
