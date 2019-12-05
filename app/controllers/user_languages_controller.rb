@@ -3,6 +3,7 @@ class UserLanguagesController < ApplicationController
     @user_language = UserLanguage.find(params['id'])
     authorize @user_language
     @random_word_in_user_language = Word.random_unseen(current_user)
+    @can_take_quiz = UserWord.where(user: current_user, quizzed: false, removed: false, knew: true).count >= 5
   end
 
   def update_languages
