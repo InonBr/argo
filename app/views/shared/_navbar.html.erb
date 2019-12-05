@@ -1,8 +1,7 @@
 <div class='navbar d-flex'>
   <div class="lateral-block-r">
 
-    <% path = controller.class.to_s.downcase == "quizzescontroller"? '#' : url_for(:back) %>
-
+    <% path = controller.class.to_s == "QuizzesController" || controller.class.to_s == "LanguagesController" || controller.class.to_s == "UserLanguagesController"? '#' : url_for(:back) %>
      <%=  link_to(path) do %>
       <i class="fas fa-arrow-circle-left"></i>
     <% end %>
