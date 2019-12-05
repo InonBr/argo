@@ -5,7 +5,6 @@ class UserLanguagesController < ApplicationController
     authorize @user_language
     end
     @random_word_in_user_language = Word.random_unseen(current_user)
-
     @can_take_quiz = UserWord.where(user: current_user, quizzed: false, removed: false, knew: true).count >= 5
   end
 
@@ -25,6 +24,7 @@ class UserLanguagesController < ApplicationController
     else
       # create a new user language and make it active
       chosen_user_language = UserLanguage.create(user: current_user, language: @language, active: true)
+      @user_language = chosen_user_language
       authorize chosen_user_language
     end
 
