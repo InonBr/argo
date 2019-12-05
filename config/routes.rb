@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'quiz/show'
   devise_for :users
+
   root to: 'pages#home'
 
   #resources :user_words, only: [:index, :show]
