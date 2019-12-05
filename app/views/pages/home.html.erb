@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: url(<%= image_path "argo_banner.png"%>);">
   <div class="text-right m-3">
   <% if user_signed_in? %>
-  <%= link_to Logout, destroy_user_session_path, method: :delete, class:"home-login"  %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
   <% else %>
   <%= link_to "Login!", new_user_session_path, class:"home-login" %>
   <% end %>
