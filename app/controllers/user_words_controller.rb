@@ -3,7 +3,7 @@ class UserWordsController < ApplicationController
   def index
 
     @user_words = policy_scope(UserWord)
-    @word = params['word_id']
+    # @word = params['word_id']
 
     unless params['search'].nil?
       search = params['search']

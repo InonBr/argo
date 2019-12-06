@@ -1,18 +1,18 @@
-<h1>
+<h1 class=most-headers>
   Quiz
-  <small>Question <%= @question_number %></small>
+  <h3 class="most-headers pl-4">Question <%= @question_number %></h3>
 </h1>
 
-<p>What dose the slang "<%= @word.original %>" means?</p>
+<p class="quiz-start-p p-5 mt-5">What does the slang "<%= @word.original %>" means?</p>
 <%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
   <%= f.input :question, as: :hidden, input_html: { value: @word.original } %>
   <%= f.input :answer, as: :hidden %>
 <% end %>
 
-<div class="quiz-answers">
+<div class="quiz-answers ml-3 mr-3">
   <% @all_answers.each do |answer| %>
-    <div>
-      <span class="btn quiz-answer" data-answer="<%= answer %>"><%= answer %></span>
+    <div class="quiz-answer">
+      <span data-answer="<%= answer %>"><%= answer %></span>
     </div>
   <% end %>
 </div>

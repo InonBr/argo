@@ -6,6 +6,7 @@
 @import "fas";
 @import "flashcard";
 
+
 //nav bar sticky, definition truncate, margin width within flexbox
 
 .d-flex2 {
@@ -27,3 +28,7 @@
   max-height: calc(100vh - 136px);
   overflow-y: auto;
 }
+
+//@import "practice";
+//@import "d-flex-two"
+

@@ -1,22 +1,21 @@
 <div class='navbar d-flex'>
   <div class="lateral-block-r">
 
-    <% path = controller.class.to_s.downcase == "quizzescontroller"? '#' : url_for(:back) %>
-
+    <% path = controller.class.to_s == "QuizzesController" || controller.class.to_s == "LanguagesController" || controller.class.to_s == "UserLanguagesController"? '#' : url_for(:back) %>
      <%=  link_to(path) do %>
       <i class="fas fa-arrow-circle-left"></i>
     <% end %>
 
-    <%= link_to('#') do %>
+    <%= link_to user_words_path do %>
       <i class="fas fa-list-ul"></i>
     <% end %>
 
   </div>
     <div class="center-block">
       <%=
-        user_words_list = UserLanguage.where(active: true)
-        path = user_words_list.empty? ? '#' : user_words_list.first
-        link_to user_language_path(path) do
+        user_words_list = UserLanguage.where(active: true, user: current_user)
+        path = user_words_list.empty? ? '#' : user_language_path(user_words_list.first)
+        link_to(path) do
           image_tag "awesome.png", alt: "awesome", class: "awesome-btn"
         end
       %>

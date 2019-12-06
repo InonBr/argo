@@ -14,6 +14,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username])
   end
 
+  protected
+
+  def after_sign_in_path_for(resource)
+    root_path
+    # return the path based on resource
+  end
+
+  # def after_sign_out_path_for(scope)
+  #   # return the path based on scope
+  # end
+
   private
 
   def skip_pundit?

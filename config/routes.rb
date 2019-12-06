@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :words, only: [] do
-    resources :user_words, only: [:index, :new, :create]
+    resources :user_words, only: [:new, :create]
   end
 
   resources :quizzes, only: [:show, :create] do
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
       post :answer
     end
   end
+
+  get 'user_words', to: "user_words#index", as: :user_words
 
   get '/profile', to: "dashboards#profile"
   get '/search', to: 'user_words#search'

@@ -10,7 +10,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body style="background-image: url('<%= asset_url("background_of_app.png") %>')">
-    <div class="page-render">
+    <div class="page-render <%= "d-flex justify-content-between flex-column" if current_page?('/quizzes/starter/') %>">
       <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
