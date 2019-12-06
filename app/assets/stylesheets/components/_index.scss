@@ -8,11 +8,6 @@
 
 //nav bar sticky, definition truncate, margin width within flexbox
 
-.d-flex {
-  position: -webkit-sticky;
-  position: sticky;
-}
-
 .d-flex2 {
   flex-direction: column;
   align-items: flex-start;
@@ -20,4 +15,15 @@
   background-color: #7DDB34;;
   border-radius: 15px;
   text-align: center;
+  position: sticky;
+}
+
+.btn2 {
+  position: sticky;
+
+}
+
+.search-page {
+  max-height: calc(100vh - 136px);
+  overflow-y: auto;
 }
