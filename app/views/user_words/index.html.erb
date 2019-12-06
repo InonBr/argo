@@ -14,25 +14,34 @@
     </div>
   </div>
 </div>
- -->
+-->
+
   <div class="search-bar">
 
     <form action="<%=  user_words_path %>" class="form-inline padded">
       <input type="text" name='search' class="form-control border-radius input-lg" placeholder="keywords...">
-      <select name="language"  class="form-control border-radius input-lg">
-        <option value="English">English</option>
-        <option value="German">German</option>
-      </select>
-      <input type="submit" class="btn2 btn-danger btn-lg" value="Search">
+      <div class="d-flex flex-grow-1">
+        <select name="language"  class="form-control border-radius input-lg">
+          <option value="English">English</option>
+          <option value="German">German</option>
+        </select>
+        <input type="submit" class="pb-0 pt-0 btn2 btn-danger btn-lg" value="Search">
+      </div>
     </form>
   </div>
 
-<!-- <ul> -->
-  <div class="list">
-<% @user_words.each do |user_word| %>
-<div class="d-flex2 justify-content-center"> <strong> <%= user_word.word.original %> <br> - <%= user_word.word.translation  %></div>
+  <!-- <ul> -->
+<div class="search-page">
+    <div class="list">
+      <% @user_words.each do |user_word| %>
+      <div class="d-flex2 justify-content-center"> <strong> <%= user_word.word.original %> <br> - <%= user_word.word.translation  %></div>
 
- <% end %>
- </div>
+       <% end %>
+     </div>
+   </strong>
 <!--  </ul>
- -->
+-->
+
+</div>
+</div>
+</div>

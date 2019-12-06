@@ -5,5 +5,30 @@
 @import "headers";
 @import "fas";
 @import "flashcard";
-@import "practice";
-@import "d-flex-two"
+
+
+//nav bar sticky, definition truncate, margin width within flexbox
+
+.d-flex2 {
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  background-color: #7DDB34;;
+  border-radius: 15px;
+  text-align: center;
+  position: sticky;
+}
+
+.btn2 {
+  position: sticky;
+
+}
+
+.search-page {
+  max-height: calc(100vh - 136px);
+  overflow-y: auto;
+}
+
+//@import "practice";
+//@import "d-flex-two"
+
