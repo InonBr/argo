@@ -1,25 +1,51 @@
-<div class="text-center">
-  <h1 class=headers>Dashboards</h1>
+<div class="dashboard-profile">
+  <div class="row">
+      <div class="col-1"></div>
+      <header class="title margin-top-20 font-weight-bold col-6" > Ciao User! </header>
+      <div class="col-5"></div>
+  </div>
+  <div class="text-center margin-top-17">
+      <%= image_tag "download.jpg", class: "avatar width-80", alt: "profile-image" %>
+  </div>
+  <!-- iterate over the @scores object, by key/value pairing -->
 
-    <%= image_tag "download.jpg", class: "ciaoone avatar", alt: "profile-image" %>
+  <!-- so that you get a language and then access the object inside the value -->
+  <div class="container mb-4 p-2">
+      <h3 class= "text-center bold"> Street Cred Meter </h3>
+      <br>
+      <h4>Totals:</h4>
+        <div class="row totals">
+          <div>
+            <i class="fas fa-medal"></i><%= @totals["total_points"]%>
+          </div>
+          <div>
+            <i class="fas fa-clock"></i><%= @totals["total_study_time"].round %> sec
+          </div>
+        </div>
+        <br>
+         <div class="rows points">
+          <div class="text-center bold" style="width: 150px;">
+      <h4 class="bold">Points:</h4>
+      <div class="row totals">
+      </div>
+    </div>
+      <% @scores.each do |language, score| %>
+    </div>
+        <!-- have to take out the proper numbers from the hash -->
+        <!-- the order of language and score matters -->
+        <div class="mx-auto" style="width: 100px;">
+        <div class="row">
+          <div class="column">
+          <%= language %> : <%= score %>
+        </div>
+      </div>
+      </div>
+      <% end %>
+    <!-- hash and keys of the language/total time that has to be iterated-->
+    <!-- @scores looks like {"language"=> score, x} -->
+  </div>
 
-  <header class="ciao2" > Ciao User! </header>
-
-<!-- iterate over the @scores object, by key/value pairing -->
-
-<!-- so that you get a language and then access the object inside the value -->
-
-  <h1>Total Time Spent Studying: <%= @totals["total_study_time"] %> seconds </h1>
-  <!-- hash and keys of the language/total time that has to be iterated-->
-  <h1>Total Time Spent Studying: <%= @totals["total_points"] %></h1>
-  <% @scores.each do |language, score| %>
-  <!-- have to take out the proper numbers from the hash -->
-   <!-- the order of language and score matters -->
-    <h1>Language:<%= language %></h1>
-      <!-- clarify it is in seconds -->
-    <p>Score: <%= score %></p>
-     <!-- clarify scores are taken from separate languages  -->
-  <% end %>
-
-  <!-- @scores looks like {"language"=> score, x} -->
 </div>
+
+
+
