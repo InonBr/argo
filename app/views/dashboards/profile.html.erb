@@ -5,7 +5,21 @@
 
   <header class="ciao2" > Ciao User! </header>
 
-  <h2> scores </h2>
-  <h3> total scores </h3>
+<!-- iterate over the @scores object, by key/value pairing -->
+
+<!-- so that you get a language and then access the object inside the value -->
+
+  <h1>Total Time Spent Studying: <%= @totals["total_study_time"] %> seconds </h1>
+  <!-- hash and keys of the language/total time that has to be iterated-->
+  <h1>Total Time Spent Studying: <%= @totals["total_points"] %></h1>
+  <% @scores.each do |language, score| %>
+  <!-- have to take out the proper numbers from the hash -->
+   <!-- the order of language and score matters -->
+    <h1>Language:<%= language %></h1>
+      <!-- clarify it is in seconds -->
+    <p>Score: <%= score %></p>
+     <!-- clarify scores are taken from separate languages  -->
+  <% end %>
+
   <!-- @scores looks like {"language"=> score, x} -->
 </div>
