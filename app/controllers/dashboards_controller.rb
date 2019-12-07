@@ -13,6 +13,5 @@
       @totals["total_study_time"] = @totals["total_study_time"] || 0 + (quiz.updated_at - quiz.created_at)
     end
     @totals["total_points"] = @user.quizzes.map {|quiz| quiz.score}.sum
-    raise
   end
 end
