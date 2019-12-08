@@ -1,4 +1,5 @@
 <div class="dashboard-profile">
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
   <div class="row">
       <div class="col-1"></div>
       <header class="title margin-top-20 font-weight-bold col-6" > Ciao <%= @user.username %>! </header>
