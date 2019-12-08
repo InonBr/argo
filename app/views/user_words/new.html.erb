@@ -4,6 +4,7 @@
       <div class="front">
         <div class="content">
           <%= simple_form_for [@word, @user_word] do |f| %>
+            <%= f.button :submit, value:  "No Thanks", data: { removed: true }, class: 'btn btn-primary'  %>
             <h1><%= @word.original %></h1>
             <%= text_area_tag "user_input", nil, class: 'guess-input' %>
             <a href="" class="btn btn-primary flip">Show me the truth!</a>
@@ -14,8 +15,8 @@
             <h1><%= @word.original %></h1>
             <p> <%= @word.translation %></p>
             <%= f.input :knew, as: :hidden %>
-            <%= f.button :submit, value: "I Knew", data: { knew: true }, class: 'btn btn-primary' %>
-            <%= f.button :submit, value:  "I didn't", data: { knew: false }, class: 'btn btn-primary'  %>
+            <%= f.button :submit, value: "Knew it!", data: { knew: true }, class: 'btn btn-primary' %>
+            <%= f.button :submit, value:  "Not sure", data: { knew: false }, class: 'btn btn-primary'  %>
           <% end %>
         </div>
       </div>
