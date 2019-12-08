@@ -17,4 +17,8 @@ class UserWordPolicy < ApplicationPolicy
   def search?
     new?
   end
+
+  def destroy?
+    record.user == user
+  end
 end
