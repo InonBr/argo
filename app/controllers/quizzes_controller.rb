@@ -23,10 +23,15 @@ class QuizzesController < ApplicationController
     @user_word = generate_question
     @word = @user_word.word
 
-    @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
-    @true_answer = @word.translation
-    @all_answers << [@answers, @true_answer]
-    @all_answers.flatten!.shuffle!
+    @all_answers = []
+    until @all_answers.length == 4 # && @all_answers.include?(@word.translation)
+      @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
+      @true_answer = @word.translation
+      @all_answers << [@answers, @true_answer]
+      @all_answers.flatten!.uniq!
+    end
+
+    @all_answers.shuffle!
     @right_answers = @quiz.score
   end
 
