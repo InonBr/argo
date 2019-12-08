@@ -20,7 +20,12 @@ class UserWordsController < ApplicationController
   end
 
   def new
-    @word = Word.find(params[:word_id])
+
+    unless params[:word_id].match?(/^#/)
+      @word = Word.find(params[:word_id])
+    else
+      @out_of_words = true
+    end
     @user_word = UserWord.new
     authorize @user_word
   end
@@ -39,8 +44,7 @@ class UserWordsController < ApplicationController
     random_unknown_user_word = UserWord.current_language(current_user).where(knew: false).order('RANDOM()').first
     random_unknown_word = random_unknown_user_word.nil? ? nil : random_unknown_user_word.word
     next_word = [Word.random_unseen(current_user), random_unknown_word].compact.sample
-
-    redirect_to new_word_user_word_path(next_word)
+    next_word.empty? ? (redirect_to new_word_user_word_path('#')) : (redirect_to new_word_user_word_path(next_word))
   end
 
   private

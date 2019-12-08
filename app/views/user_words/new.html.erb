@@ -3,6 +3,8 @@
     <div class="flipper">
       <div class="front">
         <div class="content">
+
+          <% unless @out_of_words %>
           <%= simple_form_for [@word, @user_word] do |f| %>
             <%= f.button :submit, value:  "No Thanks", data: { removed: true }, class: 'btn btn-primary'  %>
             <h1><%= @word.original %></h1>
@@ -18,6 +20,9 @@
             <%= f.button :submit, value: "Knew it!", data: { knew: true }, class: 'btn btn-primary' %>
             <%= f.button :submit, value:  "Not sure", data: { knew: false }, class: 'btn btn-primary'  %>
           <% end %>
+        <% else %>
+          <h1>You're out of words :/</h1>
+        <% end %>
         </div>
       </div>
     </div>

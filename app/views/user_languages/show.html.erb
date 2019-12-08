@@ -9,7 +9,11 @@
   <div class= "flashcard">
     <div class="col-4"></div>
 
-    <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
+    <% if @random_word_in_user_language %>
+      <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
+    <% else %>
+      <%= link_to 'flashcard', "#", class: "link disabled-link" %>
+    <% end %>
     <div class="col-4"></div>
   </div>
   <div class= "quiz">
