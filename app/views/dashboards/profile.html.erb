@@ -19,7 +19,7 @@
         <i class="fas fa-medal"></i><%= @totals["total_points"]%>
       </div>
       <div>
-        <i class="fas fa-clock"></i><%= @totals["total_study_time"].round %> sec
+        <i class="fas fa-clock"></i><%= (@totals["total_study_time"] / 60).round %> min
       </div>
     </div>
 

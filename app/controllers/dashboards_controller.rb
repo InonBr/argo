@@ -2,7 +2,7 @@
   def profile
     @user = current_user
     @scores = {}
-    @totals = {}
+    @totals = Hash.new(0)
     @user.quizzes.each do |quiz|
       #each score start from zero and makes sure it doesn't start over
       #the times are in seconds
@@ -10,8 +10,8 @@
       #takeing the sum of all the points
       #makes sure it gets the proper score at the end
       @scores[quiz.language.name] = ((@scores[quiz.language.name] || 0) + quiz.score)
-      @totals["total_study_time"] = @totals["total_study_time"] || 0 + (quiz.updated_at - quiz.created_at)
+      @totals["total_study_time"] += (quiz.updated_at - quiz.created_at)
     end
-    @totals["total_points"] = @user.quizzes.map {|quiz| quiz.score}.sum
+    @totals["total_points"] = @user.quizzes.map { |quiz| quiz.score  }.sum
   end
 end
