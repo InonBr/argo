@@ -1,17 +1,12 @@
-<h1 class=most-headers>
-  Quiz
-  <h3 class="most-headers pl-4">Question <%= @question_number %></h3>
-</h1>
 
 <p class="quiz-start-p p-5 mt-5">What does the slang "<%= @word.original %>" means?</p>
 <%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
   <%= f.input :question, as: :hidden, input_html: { value: @word.original } %>
   <%= f.input :answer, as: :hidden %>
 <% end %>
-
 <div class="quiz-answers ml-3 mr-3">
   <% @all_answers.each do |answer| %>
-    <div class="quiz-answer <%= 'correct' if answer == @true_answer %>">
+    <div class="quiz-answer p-2 <%= 'correct' if answer == @true_answer %>">
       <span data-answer="<%= answer %>"><%= answer %></span>
     </div>
   <% end %>
