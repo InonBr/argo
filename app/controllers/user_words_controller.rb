@@ -2,14 +2,14 @@ class UserWordsController < ApplicationController
 
   def index
 
-    @user_words = policy_scope(UserWord)
+    @user_words = policy_scope(UserWord).where(removed: false)
     # @word = params['word_id']
 
     unless params['search'].nil?
       search = params['search']
       language = params['language']
                 # my_words IS A METHOD IN THE USER MODEL
-      @user_words = current_user.my_words(language).select do |w|
+      @user_words = UserWord.current_language(current_user).where(removed: false).select do |w|
         if language == 'English'
           search.casecmp(w.word.original).zero? || w.word.translation.include?(search)
         else
@@ -35,7 +35,6 @@ class UserWordsController < ApplicationController
 
     @user_word = UserWord.new(user_word_params)
     @user_word.quizzed = false
-    @user_word.removed = false
     @user_word.user = current_user
     @user_word.word = @word
     authorize @user_word
@@ -51,6 +50,6 @@ class UserWordsController < ApplicationController
   private
 
   def user_word_params
-    params.require(:user_word).permit(:knew)
+    params.require(:user_word).permit(:knew, :removed)
   end
 end
