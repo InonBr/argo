@@ -31,7 +31,8 @@ class QuizzesController < ApplicationController
     @all_answers = []
     until @all_answers.length == 4
       # @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
-      @answers = Word.all.sample(3).pluck(:translation)
+      # @answers = Word.all.sample(3).pluck(:translation)
+      @answers = Word.pluck(:translation).sample(3)
       @true_answer = @word.translation
       @all_answers << [@answers, @true_answer]
       @all_answers.flatten!.uniq!
