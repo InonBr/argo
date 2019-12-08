@@ -20,7 +20,6 @@ class UserWordsController < ApplicationController
   end
 
   def new
-
     unless params[:word_id].match?(/^#/)
       @word = Word.find(params[:word_id])
     else
@@ -32,18 +31,23 @@ class UserWordsController < ApplicationController
 
   def create
     @word = Word.find(params[:word_id])
+    @user_word = UserWord.find_by(user: current_user, word: @word)
 
-    @user_word = UserWord.new(user_word_params)
-    @user_word.quizzed = false
-    @user_word.user = current_user
-    @user_word.word = @word
-    authorize @user_word
-    @user_word.save
+    if @user_word
+      @user_word.update(user_word_params)
+      authorize @user_word
+    else
+      @user_word = UserWord.new(user_word_params)
+      @user_word.quizzed = false
+      @user_word.user = current_user
+      @user_word.word = @word
+      authorize @user_word
+      @user_word.save
+    end
 
     random_unknown_user_word = UserWord.current_language(current_user).where(knew: false).order('RANDOM()').first
     random_unknown_word = random_unknown_user_word.nil? ? nil : random_unknown_user_word.word
     next_word = [Word.random_unseen(current_user), random_unknown_word].compact.flatten
-
     next_word.empty? ? (redirect_to new_word_user_word_path('#')) : (redirect_to new_word_user_word_path(next_word.sample))
   end
 
