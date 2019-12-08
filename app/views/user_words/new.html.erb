@@ -3,6 +3,8 @@
     <div class="flipper">
       <div class="front">
         <div class="content">
+
+          <% unless @out_of_words %>
           <%= simple_form_for [@word, @user_word] do |f| %>
             <h1><%= @word.original %></h1>
             <%= text_area_tag "user_input", nil, class: 'guess-input' %>
@@ -17,6 +19,9 @@
             <%= f.button :submit, value: "I Knew", data: { knew: true }, class: 'btn btn-primary' %>
             <%= f.button :submit, value:  "I didn't", data: { knew: false }, class: 'btn btn-primary'  %>
           <% end %>
+        <% else %>
+          <h1>You're out of words :/</h1>
+        <% end %>
         </div>
       </div>
     </div>
