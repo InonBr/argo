@@ -13,8 +13,8 @@
   </div>
     <div class="center-block">
       <%=
-        user_words_list = UserLanguage.where(active: true, user: current_user)
-        path = user_words_list.empty? ? '#' : user_language_path(user_words_list.first)
+        active_user_language = UserLanguage.find_by(active: true, user: current_user)
+        path = active_user_language.nil? ? '#' : user_language_path(active_user_language)
         link_to(path) do
           image_tag "awesome.png", alt: "awesome", class: "awesome-btn"
         end

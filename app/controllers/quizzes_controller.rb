@@ -8,7 +8,8 @@ class QuizzesController < ApplicationController
   def create
     if UserWord.current_language(current_user).where(quizzed: false, removed: false, knew: true).count < 5
       authorize Quiz
-      redirect_to user_language_path(UserLanguage.active_language(current_user)), notice: "Not enough words to make a quiz yet!"
+      redirect_to user_language_path(UserLanguage.active_language(current_user)), notice:
+        "Not enough words to make a quiz yet!"
     else
       @quiz = Quiz.create(user: current_user, language: current_user.user_languages.find_by(active: true).language)
       authorize @quiz
@@ -17,7 +18,6 @@ class QuizzesController < ApplicationController
   end
 
   def questions
-    # raise
     @all_answers = []
 
     @quiz = Quiz.find(params[:id])
@@ -29,15 +29,16 @@ class QuizzesController < ApplicationController
     @word = @user_word.word
 
     @all_answers = []
-    until @all_answers.length == 4 # && @all_answers.include?(@word.translation)
-      @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
+    until @all_answers.length == 4
+      # @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
+      @answers = Word.all.sample(3).pluck(:translation)
       @true_answer = @word.translation
       @all_answers << [@answers, @true_answer]
       @all_answers.flatten!.uniq!
     end
 
     @all_answers.shuffle!
-    # @right_answers = @quiz.score
+    @right_answers = @quiz.score
     @right_answer_counter = right_answers_counter
     @question_counter = question_counter
   end
@@ -48,15 +49,17 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find(params[:id])
     authorize @quiz
 
+    # binding.pry
     # Correct answer!
     if @question.translation.strip == @user_answer.strip
-       @quiz.score += 10
-       @quiz.save
-       @user_word = @question.user_words.find_by(user: current_user)
-       @user_word.quizzed = true
-       @user_word.save
-       increase_right_answers_counter
-       # @right_answers = right_answers_counter
+      @quiz.score += 10
+      @quiz.save
+      @user_word = @question.user_words.find_by(user: current_user)
+      @user_word.quizzed = true
+      @user_word.save
+      increase_right_answers_counter
+      @right_answers = right_answers_counter
+      # raise
     end
 
     counter
@@ -74,9 +77,10 @@ class QuizzesController < ApplicationController
   def generate_question
     user_word = nil
     while user_word.nil?
-      uw = UserWord.current_language(current_user)
-                    .where(user_words: { user: current_user, quizzed: false, removed: false, knew: true })
-                    .sample
+      uw = UserWord.current_language(current_user).where(user_words:
+      {
+        user: current_user, quizzed: false, removed: false, knew: true
+      }).sample
 
       user_word = uw unless quiz_user_words.include? uw.id
     end
@@ -97,7 +101,7 @@ class QuizzesController < ApplicationController
   end
 
   def counter
-   session[:counter] += 1
+    session[:counter] += 1
     if session[:counter] == 5
       redirect_to quiz_path(params[:id])
     else
