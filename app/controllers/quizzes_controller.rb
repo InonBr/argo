@@ -6,9 +6,14 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.create(user: current_user, language: current_user.user_languages.find_by(active: true).language)
-    authorize @quiz
-    redirect_to questions_quiz_path(@quiz)
+    if UserWord.current_language(current_user).where(quizzed: false, removed: false, knew: true).count < 5
+      authorize Quiz
+      redirect_to user_language_path(UserLanguage.active_language(current_user)), notice: "Not enough words to make a quiz yet!"
+    else
+      @quiz = Quiz.create(user: current_user, language: current_user.user_languages.find_by(active: true).language)
+      authorize @quiz
+      redirect_to questions_quiz_path(@quiz)
+    end
   end
 
   def questions
@@ -23,15 +28,21 @@ class QuizzesController < ApplicationController
     @user_word = generate_question
     @word = @user_word.word
 
-    @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
-    @true_answer = @word.translation
-    @all_answers << [@answers, @true_answer]
-    @all_answers.flatten!.shuffle!
-    @right_answers = @quiz.score
+    @all_answers = []
+    until @all_answers.length == 4 # && @all_answers.include?(@word.translation)
+      @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
+      @true_answer = @word.translation
+      @all_answers << [@answers, @true_answer]
+      @all_answers.flatten!.uniq!
+    end
+
+    @all_answers.shuffle!
+    # @right_answers = @quiz.score
+    @right_answer_counter = right_answers_counter
+    @question_counter = question_counter
   end
 
   def answer
-
     @question = Word.find_by(original: params[:quiz_thing][:question])
     @user_answer = params[:quiz_thing][:answer]
     @quiz = Quiz.find(params[:id])
@@ -45,7 +56,7 @@ class QuizzesController < ApplicationController
        @user_word.quizzed = true
        @user_word.save
        increase_right_answers_counter
-       @right_answers = right_answers_counter
+       # @right_answers = right_answers_counter
     end
 
     counter
@@ -66,8 +77,7 @@ class QuizzesController < ApplicationController
       uw = UserWord.current_language(current_user)
                     .where(user_words: { user: current_user, quizzed: false, removed: false, knew: true })
                     .sample
-      if quiz_user_words.include? uw.id
-      end
+
       user_word = uw unless quiz_user_words.include? uw.id
     end
     # We have found a word
