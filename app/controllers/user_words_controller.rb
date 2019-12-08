@@ -47,6 +47,13 @@ class UserWordsController < ApplicationController
     next_word.empty? ? (redirect_to new_word_user_word_path('#')) : (redirect_to new_word_user_word_path(next_word.sample))
   end
 
+  def destroy
+    @user_word = UserWord.find(params[:id])
+    authorize @user_word
+    @user_word.destroy
+    redirect_to user_words_path
+  end
+
   private
 
   def user_word_params

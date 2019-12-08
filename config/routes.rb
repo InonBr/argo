@@ -28,7 +28,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'user_words', to: "user_words#index", as: :user_words
+  resources :user_words, only: [:index, :destroy]
+
+  # get 'user_words', to: "user_words#index", as: :user_words
 
   get '/profile', to: "dashboards#profile"
   get '/search', to: 'user_words#search'
