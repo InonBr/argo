@@ -1,17 +1,5 @@
 class QuizzesController < ApplicationController
-  after_action :session_count, :question_counter_session, :right_answers_session, only: [:create]
-
-  def session_count
-    session[:counter] = 0
-  end
-
-  def question_counter_session
-    session[:question_counter] = 0
-  end
-
-  def right_answers_session
-    session[:right_questions_counter] = 0
-  end
+  after_action :reset_counters, only: [:create]
 
   def starter
     authorize Quiz
@@ -24,6 +12,7 @@ class QuizzesController < ApplicationController
   end
 
   def questions
+    # raise
     @all_answers = []
 
     @quiz = Quiz.find(params[:id])
@@ -68,6 +57,14 @@ class QuizzesController < ApplicationController
   end
 
   private
+
+  def reset_counters
+    # count of
+    session[:counter] = 0
+    session[:question_counter] = 0
+    # How many questions the user has answered correctly
+    session[:right_questions_counter] = 0
+  end
 
   def counter
    session[:counter] += 1
