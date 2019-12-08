@@ -37,7 +37,7 @@
         <div class="card mb-3 p-2">
           <div class="text-left">
             <div class="d-flex justify-content-between"><strong>
-              <%= user_word.word.original %> </strong> <%= user_word.word.language.name == "German" ? "🇩🇪" : "🇺🇸"  %></div>
+              <%= user_word.word.original %> </strong> <%= symbol(user_word.word.language.name) %></div>
             <p class="mt-1 text-right"><%= user_word.word.translation %></p>
           </div>
         </div>
