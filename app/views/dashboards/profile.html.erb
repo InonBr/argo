@@ -1,7 +1,7 @@
 <div class="dashboard-profile">
   <div class="row">
       <div class="col-1"></div>
-      <header class="title margin-top-20 font-weight-bold col-6" > Ciao User! </header>
+      <header class="title margin-top-20 font-weight-bold col-6" > Ciao <%= @user.username %>! </header>
       <div class="col-5"></div>
   </div>
   <div class="text-center margin-top-17">
@@ -11,41 +11,36 @@
 
   <!-- so that you get a language and then access the object inside the value -->
   <div class="container mb-4 p-2">
-      <h3 class= "text-center bold"> Street Cred Meter </h3>
-      <br>
-      <h4>Totals:</h4>
-        <div class="row totals">
-          <div>
-            <i class="fas fa-medal"></i><%= @totals["total_points"]%>
-          </div>
-          <div>
-            <i class="fas fa-clock"></i><%= @totals["total_study_time"].round %> sec
-          </div>
-        </div>
-        <br>
-         <div class="rows points">
-          <div class="text-center bold" style="width: 150px;">
-      <h4 class="bold">Points:</h4>
+    <h3 class= "text-center bold"> Street Cred Meter </h3>
+
+    <h4 class="text-center">Totals:</h4>
+    <div class="row totals">
+      <div>
+        <i class="fas fa-medal"></i><%= @totals["total_points"]%>
+      </div>
+      <div>
+        <i class="fas fa-clock"></i><%= @totals["total_study_time"].round %> sec
+      </div>
+    </div>
+
+    <div class="text-center rows points">
+      <h4 class="align-center">Points:</h4>
       <div class="row totals">
+        <% @scores.each do |language, score| %>
+          <!-- have to take out the proper numbers from the hash -->
+          <!-- the order of language and score matters -->
+          <div class="row col-4">
+            <%= symbol(language) %>  <span class="lang_score"><%= score %></span>
+          </div>
+        <% end %>
       </div>
     </div>
-      <% @scores.each do |language, score| %>
-    </div>
-        <!-- have to take out the proper numbers from the hash -->
-        <!-- the order of language and score matters -->
-        <div class="mx-auto" style="width: 100px;">
-        <div class="row">
-          <div class="column">
-          <%= language %> : <%= score %>
-        </div>
-      </div>
-      </div>
-      <% end %>
+  </div>
+</div>
+
     <!-- hash and keys of the language/total time that has to be iterated-->
     <!-- @scores looks like {"language"=> score, x} -->
-  </div>
 
-</div>
 
 
 
