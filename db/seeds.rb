@@ -29,12 +29,16 @@ inon_learns_german.save!
 require 'json'
 require 'open-uri'
 
-File.open('./lib/assets/slangs/slang.txt').each_line do |line|
+# English slang
+# File.open('./lib/assets/slangs/slang.txt').each_line do |line|
+File.open('./lib/assets/slangs/simple_slang.txt').each_line do |line|
   next unless line.include?(':')
 
   new_words = line.split(':')
   word = Word.new(original: new_words[0], translation: new_words[1], language: english)
   word.save!
+  UserWord.create(word: word, user: user_inon, knew: true)
+
 
 #  user_wordslist.each do |word, definition|
 #  userwords.create( word: word, definition: definition )
