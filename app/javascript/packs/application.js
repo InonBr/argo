@@ -1,8 +1,8 @@
 import "bootstrap";
-import { setupQuiz } from '../plugins/quiz'
+import { setUpQuiz } from '../plugins/quiz'
 
 if(document.querySelector('.quiz-answers')) {
-  setupQuiz()
+  setUpQuiz()
 }
 
 import { setupUserWordsForm } from '../plugins/create-user-word'
