@@ -21,9 +21,10 @@ class User < ApplicationRecord
     language.quizzes.where(user: self).pluck(:score).sum
   end
 
-  def my_words(language)
-    self.user_words.select { |w| w.word.language.name == language }
-  end
+  # def my_words(language)
+  #   self.user_words.select { |w| w.word.language.name == language }
+  # end
+
 
   # def time_spents_in_a_language
   # end
