@@ -1,9 +1,13 @@
-<div class='navbar d-flex'>
+<div class='navbar d-flex' style="background-image: url(<%= image_path "navbar.svg" %>);">
   <div class="lateral-block-r">
-
-    <% path = controller.class.to_s == "QuizzesController" || controller.class.to_s == "LanguagesController" || controller.class.to_s == "UserLanguagesController"? '#' : url_for(:back) %>
-     <%=  link_to(path) do %>
-      <i class="fas fa-arrow-circle-left"></i>
+    <% active_user_language = UserLanguage.find_by(active: true, user: current_user) %>
+    <% if controller.class.name == "LanguagesController" %>
+      <a><i class="fas fa-home"></i></a>
+    <% else %>
+      <% path = current_user ? user_language_path(active_user_language) : root_path %>
+      <%=  link_to(path) do %>
+        <i class="fas fa-home"></i>
+      <% end %>
     <% end %>
 
     <%= link_to user_words_path do %>
@@ -11,20 +15,11 @@
     <% end %>
 
   </div>
-    <div class="center-block">
-      <%=
-        active_user_language = UserLanguage.find_by(active: true, user: current_user)
-        path = active_user_language.nil? ? '#' : user_language_path(active_user_language)
-        link_to(path) do
-          image_tag "awesome.png", alt: "awesome", class: "awesome-btn"
-        end
-      %>
 
-    </div>
   <div class="lateral-block-l">
 
     <%= link_to(languages_path) do %>
-      <i class="fas fa-flag"></i>
+      <i class="fas fa-globe-americas"></i>
     <% end %>
 
     <%= link_to(profile_path) do %>

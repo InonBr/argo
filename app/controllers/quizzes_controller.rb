@@ -30,6 +30,7 @@ class QuizzesController < ApplicationController
 
     @all_answers = []
     until @all_answers.length == 4
+      @all_answers = []
       # @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
       # @answers = Word.all.sample(3).pluck(:translation)
       @answers = Word.pluck(:translation).sample(3)

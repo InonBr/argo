@@ -1,10 +1,14 @@
 .lateral-block-r, .lateral-block-l {
-  background-color: #F7F1E6;
+  background-color: #D7C1C1;
   height: 60px;
+  // z-index: -1;
   width: calc((100vw - 82px)/2);
   display: flex;
   justify-content: space-around;
   align-items: center;
+  a i.fas {
+    color: grey;
+  }
 }
 
 .lateral-block-r {
@@ -15,18 +19,6 @@
   border-top-left-radius: 16px;
 }
 
-.center-block {
-  background-color: #F7F1E6;
-  height: 60px;
-  width: 82px;
-  img {
-    border: 12px solid white;
-    border-radius: 50%;
-    position: absolute;
-    top: -43px;
-  }
-}
-
 .navbar {
   padding: 0;
   bottom:0;
@@ -35,4 +27,10 @@
 
 .page-render {
   min-height: calc(100vh - 100px);
+}
+
+.navbar {
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
 }
