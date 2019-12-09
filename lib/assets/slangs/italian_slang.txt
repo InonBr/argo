@@ -7,7 +7,7 @@ avere un chiodo fisso in testa: to be fixated on something; (lit.) to have a nai
 beccare qualcuno: to hit on someone, to pick someone up; (lit.) to peck.
 bel niente: nothing, zip; (lit.) a beautiful nothing.
 boccalone: a big mouth, a gossip; (lit.) an enormous mouth.
-chiudere il becco: to shut up, to shut one's trap; (lit.) to close the beak.
+chiudere il becco: to shut up; (lit.) to close the beak.
 colpo di fulmine: love at first sight; (lit.) a thunderbolt (of love).
 come il cacio sui maccheroni: just what the doctor ordered; (lit.) like cheese on macaroni.
 da parte: aside.
@@ -21,62 +21,58 @@ fare il grande: to show off, to act like someone big; (lit.) to do the big.
 fare impazzire qualcuno: to drive someone crazy; (lit.) to make someone crazy.
 farsi bello(a): to doll oneself up.
 farsi una canna: to have a joint.
-fuori come un balcone: drunk; (lit.) to be outside like a balcony
+fuori come un balcone: drunk; (lit.) to be outside like a balcony.
 fuori di testa: to be out of one's mind; (lit.) to be out of one's head.
 grattarsi la pancia: to twiddle one's thumbs; (lit.) to scratch one's stomach.
 gruzzolo: a fund of money accumulated as a reserve, nest egg.
 guastafesta: a party pooper; (lit.) a party spoiler.
 in gran parte: largely.
 in orario: on time.
-in verità: as a matter of fact. (lit.) in truth.
-inghiottire il rospo: be humiliated by having to admit one's defeats or mistakes. (lit.) to swallow a toad.
-la vita di Michelaccio: the easy life. (lit.) the life of Michelaccio
+in verità: as a matter of fact; (lit.) in truth.
+inghiottire il rospo: be humiliated by having to admit one's defeats or mistakes; (lit.) to swallow a toad.
+la vita di Michelaccio: the easy life; (lit.) the life of Michelaccio
 leccapiedi: brownnoser, suck-up; (lit.) feet-licker.
 libro giallo: detective or mystery story; (lit.) yellow book.
 limonare: to make out.
 locale: club or night club.
 mettere paglia al fuoco: to tempt fate; (lit.) to add straw to the fire.
-mettersi insieme: to start a serious relationship, to tie the knot. (lit.) to put oneself together
+mettersi insieme: to start a serious relationship, to tie the knot; (lit.) to put oneself together.
 mollare qualcuno: to dump someone; (lit.) to let go of someone, to release someone.
 morire di/dalla noia: to die of boredom.
-nocciolo della questione: crux of the matter. (lit.) the core of the question
+nocciolo della questione: crux of the matter; (lit.) the core of the question.
 nuotare nell'oro: to be rolling in money; (lit.) swimming in gold.
 nuovo di zecca: brand new; (lit.)  new from the mint.
-occhiataccia f. dirty look.
-oggi come oggi exp. as matters now stand.
-olio di gomito exp. elbow grease.
-ora di punta exp. rush hour.
-parolaccia f. dirty word.
-piazzaiolo m. (pejorative) vulgar, mob-.
-pigrone/a n. & a. a lazy bum (from the masculine noun pigro, meaning "someone who is idle"); (lit.): big lazy bum.
-pisello m. (popular) penis.
-portare male gli anni exp. not to age well; (lit.): to carry the years badly.
-puzzare da fare schifo exp. to stink to high heaven; (lit.): to smell/stink to disgust.
-quattro gatti exp. only a few people; (lit.): four cats.
-ricco sfondato exp. rolling in money; (lit.): endlessly rich.
-roba da matti exp. crazy.
-rompere il ghiaccio exp. to break the ice.
-rosso come un peperone exp. as red as a beet; (lit.): as red as a pepper.
-saccente (un/una) n. a know-it-all, a smart-ass; (lit.): from the verb sapere, meaning "to know."
-saputo/a n. a know-it-all, a smart-ass; (lit.): from the verb sapere, meaning "to know."
-scoreggia f. (pl. -ge) (vulgar) fart.
-scoreggiare v.i. (vulgar) to fart.
-scemo/a n. a stupid person, a jerk; (from the verb scemare, meaning "to shrink or diminish").
-sfatto f. (trivial) worn out after a night of debauchery.
-sgualdrina f. (pejorative) trollop, strumpet, harlot, tart.
-spettegolare v. to gossip; (lit.): to tattle.
-tabula rasa exp. a clean slate.
-tappo m. a very short guy; (lit.): cork.
-testona pelata f. a bald guy; (lit.): big peeled head.
-tirare un bidone a qualcuno exp. to stand someone up on a date or appointment; (lit.): to throw a trash can at someone.
-tutto sale e pepe exp. lively, cheerful; (lit.): all salt and pepper.
-uggioso/a n. (Tuscany) boring; (lit.): an annoying person.
-ultima parola exp. last word, bottom line.
-valere la pena exp. to be worth the trouble; (lit.): worth the grief or sorrow.
-vaso di Pandora exp. Pandora's box; (lit.): Pandora's vase.
-veloce come un razzo exp. as fast as a bullet; (lit.): as fast as a rocket.
-vivere alla giornata exp. to live from hand to mouth.
-volente o nolente: like it or not; (lit.): willing or unwilling.
+occhiataccia: dirty look.
+oggi come oggi: as matters now stand.
+olio di gomito: elbow grease.
+ora di punta: rush hour.
+parolaccia: dirty word.
+piazzaiolo: vulgar, mob-.
+pigrone/a: a lazy bum (from the masculine noun pigro, meaning "someone who is idle"); (lit.) big lazy bum.
+portare male gli anni: not to age well; (lit.) to carry the years badly.
+puzzare da fare schifo: to stink to high heaven; (lit.) to smell/stink to disgust.
+quattro gatti: only a few people; (lit.) four cats.
+ricco sfondato: rolling in money; (lit.) endlessly rich.
+roba da matti: crazy stuff.
+rompere il ghiaccio: to break the ice.
+rosso come un peperone: as red as a beet; (lit.) as red as a pepper.
+saccente: a know-it-all, a smart-ass; (lit.) from the verb sapere, meaning "to know."
+scoreggiare: to fart.
+scemo/a: a stupid person, a jerk; (from the verb scemare, meaning "to shrink or diminish").
+sfatto: worn out after a night of debauchery.
+spettegolare: to gossip; (lit.) to tattle.
+tabula rasa: a clean slate.
+tappo: a very short guy; (lit.) cork.
+testona pelata: a bald guy; (lit.) big peeled head.
+tirare un bidone a qualcuno: to stand someone up on a date or appointment; (lit.) to throw a trash can at someone.
+tutto sale e pepe: lively, cheerful; (lit.) all salt and pepper.
+uggioso/a: boring; (lit.) an annoying person.
+ultima parola: last word, bottom line.
+valere la pena: to be worth the trouble; (lit.) worth the grief or sorrow.
+vaso di Pandora: Pandora's box; (lit.) Pandora's vase.
+veloce come un razzo: as fast as a bullet; (lit.) as fast as a rocket.
+vivere alla giornata: to live from hand to mouth.
+volente o nolente: like it or not; (lit.) willing or unwilling.
 
 
 
