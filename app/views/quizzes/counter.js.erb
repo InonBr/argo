@@ -1,0 +1,7 @@
+function nextQuestionForm(innerHTML) {
+  const newQuizForm = document.querySelector('.quiz_thing');
+  newQuizForm.innerHTML = innerHTML;
+  console.log('I am working!!!!');
+}
+
+nextQuestionForm('<%= j redirect_to questions_quiz_path(@quiz) %>');
