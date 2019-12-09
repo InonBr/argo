@@ -16,9 +16,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
-    root_path
-    # return the path based on resource
+  def after_sign_in_path_for(_resource)
+    if UserLanguage.where(active: true, user: current_user).empty?
+      languages_path
+    else
+      user_language_path(UserLanguage.find_by(active: true, user: current_user))
+    end
   end
 
   # def after_sign_out_path_for(scope)
