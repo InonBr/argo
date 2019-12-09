@@ -24,8 +24,10 @@ german = Language.create!(name: "German", flag_url: 'https://image.flaticon.com/
 english = Language.create!(name: "English", flag_url: 'https://image.flaticon.com/icons/svg/555/555526.svg')
 italian = Language.create!(name: "Italian", flag_url: 'https://image.flaticon.com/icons/svg/555/555668.svg')
 
-inon_learns_german = UserLanguage.new(user: user_inon, language: german, active: true)
-inon_learns_german.save!
+inon_learns_german = UserLanguage.create(user: user_inon, language: german, active: true)
+inon_learns_english = UserLanguage.create(user: user_inon, language: english, active: true)
+inon_learns_italian = UserLanguage.create(user: user_inon, language: italian, active: true)
+
 require 'json'
 require 'open-uri'
 

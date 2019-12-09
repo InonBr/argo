@@ -1,21 +1,15 @@
 class UserWordsController < ApplicationController
 
   def index
-
-    @user_words = policy_scope(UserWord).where(removed: false)
+    @dropdown_languages = Language.joins(:user_languages).where(user_languages: { user: current_user })
+    @user_words = policy_scope(UserWord).where(removed: false, user: current_user)
     # @word = params['word_id']
-
+    #search bar
     unless params['search'].nil?
       search = params['search']
-      language = params['language']
-                # my_words IS A METHOD IN THE USER MODEL
-      @user_words = UserWord.current_language(current_user).where(removed: false).select do |w|
-        if language == 'English'
-          search.casecmp(w.word.original).zero? || w.word.translation.include?(search)
-        else
-          w.word.translation.downcase.include?(search.downcase)
-        end
-      end
+      language = Language.find_by(name: params['language'])
+
+      @user_words = UserWord.joins(:word).where(user_words: { user: current_user, removed: false }, words_user_words: { language_id: language.id }).search_original_and_translation(search)
     end
   end
 
