@@ -40,7 +40,11 @@
               <%= user_word.word.original %> </strong> <%= symbol(user_word.word.language.name) %></div>
             <p class="mt-1 text-right"><%= user_word.word.translation %></p>
             </div>
-            <%= link_to "Delete", user_word_path(user_word), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <div>
+                <%= link_to user_word_path(user_word), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+              </div>
           </div>
         <% end %>
     </div>
