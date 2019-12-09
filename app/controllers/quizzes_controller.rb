@@ -30,6 +30,7 @@ class QuizzesController < ApplicationController
 
     @all_answers = []
     until @all_answers.length == 4
+      @all_answers = []
       # @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
       # @answers = Word.all.sample(3).pluck(:translation)
       @answers = Word.pluck(:translation).sample(3)
@@ -78,10 +79,9 @@ class QuizzesController < ApplicationController
   def generate_question
     user_word = nil
     while user_word.nil?
-      uw = UserWord.current_language(current_user).where(user_words:
-      {
+      uw = UserWord.current_language(current_user).where(
         user: current_user, quizzed: false, removed: false, knew: true
-      }).sample
+      ).sample
 
       user_word = uw unless quiz_user_words.include? uw.id
     end
