@@ -4,7 +4,7 @@
     <% if controller.class.name == "LanguagesController" %>
       <a><i class="fas fa-home"></i></a>
     <% else %>
-      <% path = user_language_path(active_user_language) %>
+      <% path = current_user ? user_language_path(active_user_language) : root_path %>
       <%=  link_to(path) do %>
         <i class="fas fa-home"></i>
       <% end %>
