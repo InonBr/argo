@@ -13,12 +13,12 @@ puts "finished with user killing!"
 puts "create users"
 user_inon = User.new(username: 'the_awesome_squirrel', email: 'inon@gmail.com', password: '123456')
 user_inon.save
-puts "finished createing users"
+puts "finished creating users"
 
 puts "Destroy all languages and words"
 Word.destroy_all
 Language.destroy_all
-puts "finished estroying all languages and words"
+puts "finished destroying all languages and words"
 
 german = Language.create!(name: "German", flag_url: 'https://image.flaticon.com/icons/svg/555/555613.svg')
 english = Language.create!(name: "English", flag_url: 'https://image.flaticon.com/icons/svg/555/555526.svg')
@@ -31,7 +31,7 @@ require 'open-uri'
 
 # English slang
 # File.open('./lib/assets/slangs/slang.txt').each_line do |line|
-File.open('./lib/assets/slangs/simple_slang.txt').each_line do |line|
+File.open('./lib/assets/slangs/slang.txt').each_line do |line|
   next unless line.include?(':')
 
   new_words = line.split(':')
