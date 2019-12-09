@@ -59,6 +59,15 @@ Word.all.sample(10).each do |word|
   UserWord.create(word: word, user: user_inon, knew: true)
 end
 
+File.open('./lib/assets/slangs/italian_slang.txt').each_line do |line|
+  next unless line.include?(':')
+
+  new_wor = line.split(':')
+  wordi = Word.new(original: new_wor[0], translation: new_wor[1], language: italian)
+  wordi.save!
+  UserWord.create(word: wordi, user: user_inon, knew: true)
+
+end
 #category = ['']
 #url = "https://www.urbandictionary.com/category.php?category=#{category}"
 

@@ -79,9 +79,7 @@ class QuizzesController < ApplicationController
   def generate_question
     user_word = nil
     while user_word.nil?
-      uw = UserWord.current_language(current_user).where(
-        user: current_user, quizzed: false, removed: false, knew: true
-      ).sample
+      uw = UserWord.current_language(current_user).where(user: current_user, quizzed: false, removed: false, knew: true).sample
 
       user_word = uw unless quiz_user_words.include? uw.id
     end
