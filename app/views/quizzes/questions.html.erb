@@ -1,6 +1,4 @@
 <h1 class="most-headers">question: <%= @question_counter %></h1>
-<p>question_counter: <%= @question_counter %></p>
-<p>right_answer_counter: <%= @right_answer_counter %></p>
 
 <p class="quiz-start-p p-5 mt-5">What does the slang "<%= @word.original %>" means?</p>
 <%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
