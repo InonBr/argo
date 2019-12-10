@@ -1,26 +1,25 @@
-<div class="start_practice_top">
-  <h1 class=most-headers> Start <br> Practicing </h1>
-
+ <!--<div class="language-bg">-->
+<div class="white-container d-flex p-4 my-5">
+  <div class="start_practice_top">
+    <h1>Start Practicing</h1>
+  </div>
   <%= image_tag(@user_language.language.flag_url, class: 'language-img') unless @user_language.nil? %>
 </div>
 
+  <!--<div class= "flashcard">-->
+<div class="pt-2">
+  <% if @random_word_in_user_language %>
+    <div class="white-container mt-5 text-center">
+      <%= link_to 'Flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
+    </div>
+  <% else %>
+    <div class="white-container mt-5 text-center">
+      <%= link_to 'Flashcard', "#", class: "link disabled-link" %>
+    </div>
+  <% end %>
+        <!--<div class= "quiz">-->
 
-<div class="start_practice_main container">
-  <div class= "flashcard">
-    <div class="col-4"></div>
-
-    <% if @random_word_in_user_language %>
-      <%= link_to 'flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
-    <% else %>
-      <%= link_to 'flashcard', "#", class: "link disabled-link" %>
-    <% end %>
-    <div class="col-4"></div>
-  </div>
-  <div class= "quiz">
-    <div class="col-4"></div>
-    <%= link_to_if @can_take_quiz, 'quiz', starter_quizzes_path,  class: "link" %>
-    <div class="col-4"></div>
+  <div class="white-container mt-4 text-center">
+    <%= link_to_if @can_take_quiz, 'Quiz', starter_quizzes_path,  class: "link" %>
   </div>
 </div>
-
-
