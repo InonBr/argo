@@ -8,16 +8,15 @@
   <%= f.input :answer, as: :hidden %>
 <% end %>
 
-<div class="pt-5 mt-5">
-  <div class="quiz-answers ml-3 mr-3">
+
+<div class="mt-5">
+  <div class="quiz-answers">
     <% @all_answers.each do |answer| %>
-      <div class="quiz-answer p-2 <%= 'correct' if answer == @true_answer %>" data-answer="<%= answer %>">
-        <span data-answer="<%= answer %>"><%= answer %></span>
-      </div>
-    <% end %>
-  <button class="d-none" id="next_question">Next</button>
+        <div class="quiz-answer white-container mt-2 p-2 <%= 'correct' if answer == @true_answer %>" data-answer="<%= answer %>">
+          <span data-answer="<%= answer %>"><%= answer %></span>
+        </div>
+      <% end %>
+      <span class="pill-case mt-2"><a class="d-none pr-2 pl-2 pt-1 pb-1 pill-button" id="next_question">Next</a></span>
+  </div>
 </div>
 
-
-
-</div>
