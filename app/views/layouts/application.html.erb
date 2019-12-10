@@ -16,7 +16,7 @@
       <%= render 'shared/ios_pwa_links' %>
   </head>
     <% if  params[:action] != "starter" && params[:controller] == "quizzes" || params[:controller] == "user_words"%>
-      <% @class = @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
+      <% @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
     <% else %>
       <% @class = "regular-" + ["blue", "pink", "beige"].sample %>
     <% end %>
