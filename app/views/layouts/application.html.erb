@@ -15,7 +15,13 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
       <%= render 'shared/ios_pwa_links' %>
   </head>
-  <body>
+    <% if  params[:action] != "starter" && params[:controller] == "quizzes" || params[:controller] == "user_words"%>
+      <% @class = @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
+    <% else %>
+      <% @class = "regular-" + ["blue", "pink", "beige"].sample %>
+    <% end %>
+
+  <body class="<%= @class  %>">
     <div class="page-render <%= "d-flex justify-content-between flex-column" if current_page?('/quizzes/starter/') %>">
       <%= render 'shared/flashes' %>
       <%= yield %>

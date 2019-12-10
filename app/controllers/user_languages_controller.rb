@@ -9,7 +9,7 @@ class UserLanguagesController < ApplicationController
   end
 
   def update_languages
-    #@languages = policy_scope(Language)
+    # @languages = policy_scope(Language)
     @language = Language.find(params[:language_id])
     @languages = policy_scope(Language)
     authorize @language
@@ -36,6 +36,6 @@ class UserLanguagesController < ApplicationController
         l.save
       end
     end
-    redirect_to user_language_path( @user_language)
+    redirect_to user_language_path(@user_language)
   end
 end
