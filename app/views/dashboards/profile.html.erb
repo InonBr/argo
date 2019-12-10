@@ -1,46 +1,70 @@
+<div class="language-bg">
 <div class="container-fluid">
+
   <div class="dashboard-profile">
 
-    <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
+<div class="white-container mt-5 position-relative">
+          <%= image_tag "download.jpg", class: "avatar width-80", alt: "profile-image", id: "profile-avatar" %>
 
     <div class="row">
-        <header class="title margin-top-20 font-weight-bold col-12" > Ciao <%= @user.username %>! </header>
+        <header class="title margin-top-20 font-weight-bold col-12" > <%= @user.username %>'s Street-Cred </header>
     </div>
-    <div class="text-center margin-top-17">
-        <%= image_tag "download.jpg", class: "avatar width-80", alt: "profile-image" %>
-    </div>
-    <!-- iterate over the @scores object, by key/value pairing -->
 
-    <!-- so that you get a language and then access the object inside the value -->
-    <div class="container mb-4 p-2">
-      <h3 class= "text-center bold"> Street Cred Meter </h3>
+  </div>
 
-      <h4 class="text-center">Totals:</h4>
-      <div class="row totals">
-        <div>
-          <i class="fas fa-medal"></i><%= @totals["total_points"]%>
-        </div>
-        <div>
+<div class="white-container mt-5">
+
+         <div class="d-flex justify-content-between align-items-center">
           <i class="fas fa-clock"></i><%= (@totals["total_study_time"] / 60).round %> min
         </div>
       </div>
 
-      <div class="text-center rows points">
-        <h4 class="align-center">Points:</h4>
-        <div class="row totals">
-          <% @scores.each do |language, score| %>
+    <!-- iterate over the @scores object, by key/value pairing -->
+
+    <!-- so that you get a language and then access the object inside the value -->
+    <div class="container mb-4 p-2">
+
+      <div class="white-container2 mt-5 pop">
+
+    <div>
+      <% @scores.each do |language, score| %>
             <!-- have to take out the proper numbers from the hash -->
             <!-- the order of language and score matters -->
-            <div class="row col-6">
+            <div style="padding:6px" class="d-flex justify-content-between profile-language">
+
               <%= symbol(language) %>  <span class="lang_score"><%= score %></span>
+
             </div>
-          <% end %>
+
+       <% end %>
+    </div>
+          <div class="line"></div>
+
+
+
+
+
+
+
+
+          <div style="padding:10px" class="total-sum d-flex justify-content-between">
+            <div >Sum</div>
+            <div><%= @scores.values.sum %></div>
+          </div>
+            <!-- <div class="line"></div> -->
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+ <div>
+           <!-- <i class="fas fa-medal"></i>Total <%= @totals["total_points"]%>
+        </div> -->
 
+     <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
+</div>
+<%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
+</div>
     <!-- hash and keys of the language/total time that has to be iterated-->
     <!-- @scores looks like {"language"=> score, x} -->
 
