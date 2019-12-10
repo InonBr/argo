@@ -1,6 +1,6 @@
 <div class="white-container mt-5" style="position:relative;">
-  <%= image_tag "#{UserLanguage.find_by(user: User.last, active:true).language.name.downcase}-icon", class: "quiz-icon" %>
-  <p>What does the slang "<%= @word.original %>" means?</p>
+  <%= image_tag "#{UserLanguage.find_by(user: User.last, active:true).language.name.downcase}-icon.png", class: "quiz-icon" %>
+  <p>What does the slang <strong><%= @word.original %></strong> means?</p>
 </div>
 
 <%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
