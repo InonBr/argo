@@ -12,7 +12,7 @@
 
  .language-bg {
        background-color: #CFD4E0;
-       height: 100vh;
+       min-height: 100vh;
        padding-top: 30px;
 }
 
@@ -64,8 +64,8 @@
 
 #profile-avatar {
   position: absolute;;
-  top: -30px;
-  right: -10px;
+  top: -62px;
+  right: -253px;
 }
 
 .dashboard-profile {
@@ -81,6 +81,11 @@
   form {
     width: 100%;
   }
+}
+
+.profile-language {
+  padding: 6px;
+  max-height: 60px
 }
 
 // .pop div:last-child  {

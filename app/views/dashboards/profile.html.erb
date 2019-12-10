@@ -1,73 +1,57 @@
 <div class="language-bg">
-<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="dashboard-profile">
+      <div class="white-container mt-5 position-relative">
 
-  <div class="dashboard-profile">
 
-<div class="white-container mt-5 position-relative">
-          <%= image_tag "download.jpg", class: "avatar width-80", alt: "profile-image", id: "profile-avatar" %>
+    <ul class="nav">
+      <li class="nav-item dropdown">
+        <!--img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="#" /-->
+        <%= image_tag "download.jpg", class: "avatar width-80 dropdown-toggle", alt: "profile-image", id: "profile-avatar", data: { toggle: 'dropdown' } %>
 
-    <div class="row">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"></a>
+             <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+        </div>
+      </li>
+    </ul>
+
+        <%#= image_tag "download.jpg", class: "avatar width-80", alt: "profile-image", id: "profile-avatar" %>
+
+        <div class="row">
         <header class="title margin-top-20 font-weight-bold col-12" > <%= @user.username %>'s Street-Cred </header>
-    </div>
-
-  </div>
-
-<div class="white-container mt-5">
-
-         <div class="d-flex justify-content-between align-items-center">
-          <i class="fas fa-clock"></i><%= (@totals["total_study_time"] / 60).round %> min
-        </div>
       </div>
-
+    </div>
+    <div class="white-container mt-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <i class="fas fa-clock"></i><%= (@totals["total_study_time"] / 60).round %> min
+      </div>
+    </div>
     <!-- iterate over the @scores object, by key/value pairing -->
-
     <!-- so that you get a language and then access the object inside the value -->
-    <div class="container mb-4 p-2">
+    <div class="mb-4 pb-2">
+      <div class="white-container2 mt-2 pop">
+        <div>
+          <% @scores.each do |language, score| %>
+          <!-- have to take out the proper numbers from the hash -->
+          <!-- the order of language and score matters -->
+          <div class="d-flex justify-content-between profile-language">
 
-      <div class="white-container2 mt-5 pop">
-
-    <div>
-      <% @scores.each do |language, score| %>
-            <!-- have to take out the proper numbers from the hash -->
-            <!-- the order of language and score matters -->
-            <div style="padding:6px" class="d-flex justify-content-between profile-language">
-
-              <%= symbol(language) %>  <span class="lang_score"><%= score %></span>
-
-            </div>
-
-       <% end %>
-    </div>
-          <div class="line"></div>
-
-
-
-
-
-
-
-
-          <div style="padding:10px" class="total-sum d-flex justify-content-between">
-            <div >Sum</div>
-            <div><%= @scores.values.sum %></div>
+            <%= symbol(language) %>
+            <span class="lang_score"><%= score %></span>
           </div>
-            <!-- <div class="line"></div> -->
-          </div>
+          <% end %>
         </div>
+        <div class="line"></div>
+        <div style="padding:10px" class="total-sum d-flex justify-content-between">
+          <div >Total</div>
+          <div><%= @scores.values.sum %></div>
+        </div>
+        <%#= link_to "Logout", destroy_user_session_path, method: :delete,class: "pill-button p-3"  %>
       </div>
     </div>
   </div>
- <div>
-           <!-- <i class="fas fa-medal"></i>Total <%= @totals["total_points"]%>
-        </div> -->
-
-     <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
 </div>
-<%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
 </div>
-    <!-- hash and keys of the language/total time that has to be iterated-->
-    <!-- @scores looks like {"language"=> score, x} -->
-
-
-
-
+<!-- hash and keys of the language/total time that has to be iterated-->
+<!-- @scores looks like {"language"=> score, x} -->
