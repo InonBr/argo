@@ -5,8 +5,8 @@
   rgba(255, 255, 255, 0) 64.67%), #F9ADA0;
 
   font-size: 21px;
-  display: flex;
-  flex-direction: column;
+  display: -webkit-flex;
+  flex-direction: row;
   justify-content: flex-start;
   padding: 20px 0px 20px 0px;
   align-items: center;
