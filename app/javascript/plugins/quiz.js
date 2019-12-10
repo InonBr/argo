@@ -12,9 +12,9 @@ const onAnswerClicked = (event) => {
 
   // display correct answer and highlight
   if(!isAnswere) {
-    event.currentTarget.style.background = "red"
+    event.currentTarget.classList.add("wrong-answer")
   }
-  trueAnswer.style.background = "green";
+  trueAnswer.classList.add("correct-answer");
 
   // query  Next Button.. remove d-none class
   const nextButton = document.querySelector('#next_question');
