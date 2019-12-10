@@ -1,3 +1,4 @@
+<div class="language-bg">
 <div class="container-fluid">
 
   <div class="dashboard-profile">
@@ -57,14 +58,13 @@
     </div>
   </div>
  <div>
-          <i class="fas fa-medal"></i>Total <%= @totals["total_points"]%>
-        </div>
+           <!-- <i class="fas fa-medal"></i>Total <%= @totals["total_points"]%>
+        </div> -->
 
      <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
 </div>
 <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
-
-
+</div>
     <!-- hash and keys of the language/total time that has to be iterated-->
     <!-- @scores looks like {"language"=> score, x} -->
 
