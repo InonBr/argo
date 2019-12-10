@@ -18,21 +18,22 @@ class QuizzesController < ApplicationController
   end
 
   def questions
-    @all_answers = []
-
     @quiz = Quiz.find(params[:id])
     authorize @quiz
-
-    increase_question_counter
-    @question_number = question_counter
-    @user_word = generate_question
-    @word = @user_word.word
-
     @all_answers = []
+
+    if session[:counter] == session[:question_counter]
+      @question_number = question_counter
+      @user_word = generate_question
+      @word = @user_word.word
+      session[:current_word] = @word
+      increase_question_counter
+    else
+      @word = Word.find(session[:current_word]['id'])
+    end
+
     until @all_answers.length == 4
       @all_answers = []
-      # @answers = Word.order('RANDOM()').limit(3).pluck(:translation)
-      # @answers = Word.all.sample(3).pluck(:translation)
       @answers = Word.pluck(:translation).sample(3)
       @true_answer = @word.translation
       @all_answers << [@answers, @true_answer]
@@ -48,10 +49,10 @@ class QuizzesController < ApplicationController
   def answer
     @question = Word.find_by(original: params[:quiz_thing][:question])
     @user_answer = params[:quiz_thing][:answer]
+
     @quiz = Quiz.find(params[:id])
     authorize @quiz
 
-    # binding.pry
     # Correct answer!
     if @question.translation.strip == @user_answer.strip
       @quiz.score += 10
@@ -61,9 +62,7 @@ class QuizzesController < ApplicationController
       @user_word.save
       increase_right_answers_counter
       @right_answers = right_answers_counter
-      # raise
     end
-
     counter
   end
 
