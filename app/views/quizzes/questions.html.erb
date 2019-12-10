@@ -1,10 +1,14 @@
-<h1 class="most-headers">question: <%= @question_counter %></h1>
+<div class="white-container mt-5" style="position:relative;">
 
-<p class="quiz-start-p p-5 mt-5">What does the slang "<%= @word.original %>" means?</p>
+  <%= image_tag UserLanguage.find_by(user: User.last, active:true).language.name.downcase + "-icon.png", class: "quiz-icon" %>
+  <p>What does the slang "<%= @word.original %>" means?</p>
+</div>
+
 <%= simple_form_for :quiz_thing, url: answer_quiz_path, method: :post do |f| %>
   <%= f.input :question, as: :hidden, input_html: { value: @word.original } %>
   <%= f.input :answer, as: :hidden %>
 <% end %>
+<div class="pt-5 mt-5">
 <div class="quiz-answers ml-3 mr-3">
   <% @all_answers.each do |answer| %>
     <div class="quiz-answer p-2 <%= 'correct' if answer == @true_answer %>" data-answer="<%= answer %>">
@@ -16,3 +20,4 @@
 
 
 
+</div>

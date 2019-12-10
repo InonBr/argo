@@ -1,6 +1,3 @@
-body {
-  background-color: rgba(248, 236, 222, 0.6);
-}
 
 .quiz-start-p {
   font-style: $body-font;
@@ -8,7 +5,6 @@ body {
 }
 
 .quiz-answers {
-  background-color: #A0ABC2;
   border-radius: 10px;
   padding: 3px;
   margin-top: -40px;
@@ -17,6 +13,7 @@ body {
 
 .quiz-answer {
   background-color: white;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.6)
 }

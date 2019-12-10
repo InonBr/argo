@@ -33,3 +33,33 @@
 //@import "practice";
 //@import "d-flex-two"
 
+.italian {
+  background-image: url("italian-background.png");
+}
+
+.english {
+  background-image: url("american-background.png");
+}
+
+.german {
+  background-image: url("german-background.png");
+}
+
+.regular-blue {
+  background-color: rgba(248, 236, 222, 0.6);
+}
+
+.regular-beige {
+  background-color: #E5E5E5;
+}
+
+.regular-pink {
+  background-color: #F1D2D2;
+}
+
+.quiz-icon {
+  width: 80px;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
