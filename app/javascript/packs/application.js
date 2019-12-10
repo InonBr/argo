@@ -18,3 +18,9 @@ if (document.querySelector('.flipper')) {
   setupCardFlipper()
 }
 
+// we tried to do change the border of the navbar - but it's too complicated because the svg is rendered as a bg image
+// const bg = document.querySelector(".page-render");
+// const bgColor = getComputedStyle(bg.firstElementChild)['background-color'];
+
+// const navbar = document.querySelector('.navbar')
+// navbar.style.
