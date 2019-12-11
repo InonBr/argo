@@ -1,4 +1,6 @@
-<h2>Sign up</h2>
+<div class="container-fluid mr-2">
+   <div class="wrap-inputs">
+<h2 class="p-0" id="login">Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -19,8 +21,10 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Join", id: "login-btn" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
+</div>
+</div>
