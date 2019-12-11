@@ -45,17 +45,17 @@
   background-image: url("german-background.png");
 }
 
-.regular-blue {
-  background-color: rgba(248, 236, 222, 0.6);
-}
-
-.regular-beige {
-  background-color: #E5E5E5;
-}
-
-.regular-pink {
+.regular {
   background-color: #F1D2D2;
 }
+
+// .regular-beige {
+//   background-color: #E5E5E5;
+// }
+
+// .regular-pink {
+//   background-color: #F1D2D2;
+// }
 
 .quiz-icon {
   width: 90px;
@@ -80,4 +80,41 @@
   border-width: 4px;
   color: #EE6E6E;
   font-weight: bold;
+}
+
+.wrap-inputs {
+  max-width: 75vw;
+  margin: 0 auto;
+  margin-top: 10vh;
+  input {
+    border-radius: 5px;
+    border: 0px;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.25);
+
+  }
+}
+
+#login {
+  font-family: Lato;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 60px;
+  text-align: center;
+  vertical-align : top;
+  color: #FFFFFF;
+  text-shadow: rgba(0,0,0,0.4) 0px 2px 4px;
+}
+
+#login-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 80px;
+    width: 100vw;
+    border-radius: 0;
+    background-color: rgba(255,255,255,0.43);
+    font-family: Lato;
+    font-size: 30px;
+    line-height: 36px;
+    color: #848B99;
 }
