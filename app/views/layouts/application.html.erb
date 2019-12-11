@@ -21,12 +21,16 @@
     <% else %>
       <% @class = "regular-#{['beige', 'blue', 'pink'].sample}" %>
     <% end %>
+    <% if params[:controller] ==  "devise/sessions"%>
+        <% @class = 'regular-pink' %>
+    <% end %>
+    <% if params[:controller] ==  "devise/registrations"%>
+        <% @class = 'regular-blue' %>
+    <% end %>
 
-  <body class="<%= @class  %>">
-    <div class="page-render <%= "d-flex justify-content-between flex-column" if current_page?('/quizzes/starter/') %>">
+  <body class="<%= @class  %>" id="app_wrapper">
       <%= render 'shared/flashes' %>
       <%= yield %>
-    </div>
     <%= render 'shared/navbar' unless current_page?(root_path) || devise_controller? %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
