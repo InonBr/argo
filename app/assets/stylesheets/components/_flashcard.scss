@@ -11,16 +11,28 @@ p {
 
 /* entire container, keeps perspective */
 
-.page {
+.page-flashcard {
   width: 100%;
   // position: absolute;
   //   top: 50%;
   //   left: 0;
   // transform: translateY(-50%);
-  height: 75vh;
-  padding-top: 25vh;
+  height: calc(100vh - 60px);
+  padding-top: 10vh;
+  overflow: hidden;
+}
+.flip-container, .front, .back {
+      width: 80vw;
+      min-height: 30vh;
 }
 
+.question_container {
+  width: 80vw;
+  box-shadow: 1px 1px 5px #333 !important;
+  h4 {
+        word-break: break-word;
+  }
+}
 .flip-container {
   margin: 0 auto;
   perspective: 1000px;
@@ -30,9 +42,8 @@ p {
   //   transform: rotateY(180deg);
   // }
 
-.flip-container, .front, .back {
-  width: 50vh;
-  // height: 40vh;
+.flip-container {
+  border-radius: 2px;
 }
 
 /* flip speed goes here */
@@ -48,48 +59,92 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+}
 
+.pill-button.flip.py-1.px-2 {
+  width: 200px;
+  margin: 15px auto;
+}
+
+#user_input {
+  height: 50%;
+  width: 100%;
+  border: 1px solid lightgrey;
 }
 
 /* front pane, placed above back */
 .front {
   z-index: 2;
   transform: rotateY(0deg);
-  // background-color: #fff;
+  background-color: #fff;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
   box-shadow: 1px 1px 5px #333;
-  background-color: lightgray;
-  color: black;
-  // background: linear-gradient(to bottom,
-  //   white 0, white 20%,
-  //   lightblue 0, lightblue 21.2%,
-  //   white 0, white 30%,
-  //   pink 0, pink 30.3%,
-  //   white 0, white 40%,
-  //   pink 0, pink 40.3%,
-  //   white 0, white 50%,
-  //   pink 0, pink 50.3%,
-  //   white 0, white 60%,
-  //   pink 0, pink 60.3%,
-  //   white 0, white 70%,
-  //   pink 0, pink 70.3%,
-  //   white 0, white 80%,
-  //   pink 0, pink 80.3%,
-  //   white 0, white 90%,
-  //   pink 0, pink 90.3%,
-  //   white 0
-  // );
+
 }
 
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
-  // background-color: #fefefe;
-  background-color: lightgray;
+  background-color: #fefefe;
   box-shadow: 1px 1px 5px #333;
 }
 
-.content {
-  padding: 1em;
+.front .content  {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+
+}
+.back .content {
+  height: inherit;
+  justify-content: center;
+  p {
+    padding: 1rem;
+    height: 150px;
+    overflow-y: auto;
+    word-break: break-word;
+    color: #848B99;
+  }
+  .no_show_text {
+    float: right;
+    color: #848B99;
+    font-weight: lighten;
+  }
+}
+
+  .new_user_word {
+    height: inherit;
+        flex-direction: column;
+    display: grid;
+    grid-template-rows: 40vh 60px;
+  }
+
+.flip_buttons {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  input {
+    height: 50px;
+    width: 150px;
+
+  }
+  &_back, &_front {
+  }
+  &_back {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+  }
+  &_front {
+    div {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 .flip-action {
@@ -98,6 +153,7 @@ p {
 
 .flip-card {
   transform: rotateY(180deg);
+
 }
 
 .red-border {
@@ -105,5 +161,13 @@ p {
 }
 
 #user_input {
-  height: 20vh;
+  width: 80%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid lightgray;
+}
+
+.white-container.ask-user-for-guess {
+  color: #848B99;
+  border-radius: 2px;
 }
