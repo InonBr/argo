@@ -7,7 +7,8 @@
 @import "flashcard";
 @import "show";
 @import "all-buttons";
-
+@import "backgrounds";
+@import "quiz_feachers";
 
 //nav bar sticky, definition truncate, margin width within flexbox
 
@@ -32,52 +33,3 @@
 
 //@import "practice";
 //@import "d-flex-two"
-
-.italian {
-  background-image: url("italian-background.png");
-}
-
-.english {
-  background-image: url("american-background.png");
-}
-
-.german {
-  background-image: url("german-background.png");
-}
-
-.regular-blue {
-  background-color: rgba(248, 236, 222, 0.6);
-}
-
-.regular-beige {
-  background-color: #E5E5E5;
-}
-
-.regular-pink {
-  background-color: #F1D2D2;
-}
-
-.quiz-icon {
-  width: 90px;
-  position: absolute;
-  top: -35px;
-  right: -24px;
-}
-
-.correct-answer {
-  padding: 4px !important;
-  border: 4px solid !important;
-  border-color: #68C6A4;
-  border-width: 4px;
-  color: #68C6A4;
-  font-weight: bold;
-}
-
-.wrong-answer {
-  padding: 4px !important;
-  border: 4px solid !important;
-  border-color: #EE6E6E;
-  border-width: 4px;
-  color: #EE6E6E;
-  font-weight: bold;
-}
