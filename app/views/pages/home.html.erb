@@ -1,27 +1,31 @@
-<div class="banner" style="background-image: url(<%= image_path "argo_banner.png"%>);">
+<div class="banner regular-pink">
   <div class="text-right m-3">
-  <% if user_signed_in? %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"home-login"  %>
-  <% else %>
-  <%= link_to "Login!", new_user_session_path, class:"home-login" %>
-  <% end %>
+
   </div>
 
 
   <div class="home-wrapper">
     <div class="title-wrapper">
-      <h2>Argo</h2>
+
+                 <%= image_tag "speech.png", class: " baloon"%>
+
+
+      <h2 class="p-0">ARGO</h2>
     </div>
     <div class="slogan">
-
-    <%= image_tag "argo_logo.png", class: "argo" %>
-      <h3>Learn Slang and Up Your Cool !</h3>
+      <h3>Learn Slang and Up Your Cool in a foreign language</h3>
     </div>
   </div>
-  <div class="learn-button">
 
-    <%= link_to "Learn!", languages_path, class:"home-login" %>
+  <div class="d-flex flex-column align-items-center justify-content-center">
+      <%= link_to "Sign up", new_user_registration_path, class: "home-link"%>
+
+      <%= link_to "Log In", new_user_session_path, class: "home-link" %>
+
   </div>
+
+
+
 </div>
 
 
