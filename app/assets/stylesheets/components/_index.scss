@@ -7,7 +7,8 @@
 @import "flashcard";
 @import "show";
 @import "all-buttons";
-
+@import "backgrounds";
+@import "quiz_feachers";
 
 //nav bar sticky, definition truncate, margin width within flexbox
 
@@ -32,89 +33,3 @@
 
 //@import "practice";
 //@import "d-flex-two"
-
-.italian {
-  background-image: url("italian-background.png");
-}
-
-.english {
-  background-image: url("american-background.png");
-}
-
-.german {
-  background-image: url("german-background.png");
-}
-
-.regular {
-  background-color: #F1D2D2;
-}
-
-// .regular-beige {
-//   background-color: #E5E5E5;
-// }
-
-// .regular-pink {
-//   background-color: #F1D2D2;
-// }
-
-.quiz-icon {
-  width: 90px;
-  position: absolute;
-  top: -35px;
-  right: -24px;
-}
-
-.correct-answer {
-  padding: 4px !important;
-  border: 4px solid !important;
-  border-color: #68C6A4;
-  border-width: 4px;
-  color: #68C6A4;
-  font-weight: bold;
-}
-
-.wrong-answer {
-  padding: 4px !important;
-  border: 4px solid !important;
-  border-color: #EE6E6E;
-  border-width: 4px;
-  color: #EE6E6E;
-  font-weight: bold;
-}
-
-.wrap-inputs {
-  max-width: 75vw;
-  margin: 0 auto;
-  margin-top: 10vh;
-  input {
-    border-radius: 5px;
-    border: 0px;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.25);
-
-  }
-}
-
-#login {
-  font-family: Lato;
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 60px;
-  text-align: center;
-  vertical-align : top;
-  color: #FFFFFF;
-  text-shadow: rgba(0,0,0,0.4) 0px 2px 4px;
-}
-
-#login-btn {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 80px;
-    width: 100vw;
-    border-radius: 0;
-    background-color: rgba(255,255,255,0.43);
-    font-family: Lato;
-    font-size: 30px;
-    line-height: 36px;
-    color: #848B99;
-}
