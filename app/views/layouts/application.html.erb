@@ -4,7 +4,6 @@
  <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable"  content="yes">
 
@@ -13,9 +12,11 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-      <%= render 'shared/ios_pwa_links' %>
+    <%= render 'shared/ios_pwa_links' %>
   </head>
-    <% if  params[:action] != "starter" && params[:controller] == "quizzes" || params[:controller] == "user_words"%>
+
+    <% if  params[:action] != "starter" && params[:controller] == "quizzes" ||
+        params[:action] != "index" && params[:controller] == "user_words" %>
       <% @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
     <% else %>
       <% @class = "regular-" + ["blue", "pink", "beige"].sample %>
