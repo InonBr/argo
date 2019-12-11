@@ -49,7 +49,6 @@ class UserWordsController < ApplicationController
     @user_word = UserWord.find(params[:id])
     authorize @user_word
     @user_word.destroy
-    redirect_to user_words_path
   end
 
   private

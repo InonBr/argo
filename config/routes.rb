@@ -27,8 +27,8 @@ Rails.application.routes.draw do
       post :answer
     end
   end
-
   resources :user_words, only: [:index, :destroy]
+
 
   # get 'user_words', to: "user_words#index", as: :user_words
 
