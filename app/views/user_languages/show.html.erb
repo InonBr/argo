@@ -9,21 +9,35 @@
 
   <div class="pt-2">
     <% if @random_word_in_user_language %>
-    <div class="white-container mt-5 text-center pill-button">
-      <%= link_to 'Flashcard', new_word_user_word_path(@random_word_in_user_language), class: "link" %>
-    </div>
+
+
+
+      <%= link_to new_word_user_word_path(@random_word_in_user_language), class: "link" do %>
+        <div class="white-container mt-5 text-center pill-button">Flashcard</div>
+      <% end %>
     <% else %>
-    <div class="white-container mt-5 text-center">
       <%= link_to 'Flashcard', "#", class: "link disabled-link" %>
-    </div>
+        <div class="white-container mt-5 text-center"></div>
     <% end %>
-    <!--<div class= "quiz">-->
-    <div class="white-container mt-4 text-center pill-button">
+
       <% if @can_take_quiz %>
-        <%= link_to 'Quiz', starter_quizzes_path,  class: "link"%>
+
+          <%= link_to starter_quizzes_path,  class: "link" do %>
+            <div class="white-container mt-4 text-center pill-button">Quiz</div>
+          <% end %>
+
       <% else %>
-      <div class="link">Quiz 🔒</div>
+
+        <div class="white-container mt-4 text-center pill-button">
+          <div class="link">Quiz 🔒</div>
+        </div>
+
       <% end %>
     </div>
+
+
+
+
+
   </div>
 </div>

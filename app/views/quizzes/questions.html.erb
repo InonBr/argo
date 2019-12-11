@@ -9,7 +9,7 @@
 <% end %>
 
 
-<div class="mt-5">
+<div class="mt-5 pb-3">
   <div class="quiz-answers">
     <% @all_answers.each do |answer| %>
         <div class="quiz-answer white-container mt-2 p-2 <%= 'correct' if answer == @true_answer %>" data-answer="<%= answer %>">

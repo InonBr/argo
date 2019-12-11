@@ -1,41 +1,47 @@
 .italian {
   background-image: url("https://res.cloudinary.com/dds64vxxo/image/upload/v1576066632/italian-background_fdpgiz.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }
 
 .english {
   background-image: url("https://res.cloudinary.com/dds64vxxo/image/upload/v1576066632/american-background_ipinr2.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }
 
 .german {
   background-image: url("https://res.cloudinary.com/dds64vxxo/image/upload/v1576066632/german-background_xrv7fm.png");
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }
 
 .regular-blue {
   background: #CFD4E0;
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }
 
 .regular-beige {
-  background-color: rgba(248, 236, 222, 0.6);
+  background-color: #D6CDBC;
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }
 
 .regular-pink {
   background-color: #F1D2D2;
   background-size: cover;
-  background-repeat: no-repeat;
-  overflow: auto;
+  // background-repeat: no-repeat;
+  // overflow: auto;
+  min-height: 100vh;
 }

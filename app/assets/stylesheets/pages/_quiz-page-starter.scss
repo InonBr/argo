@@ -52,3 +52,22 @@
 .start-quiz {
   font-weight: bold;
 }
+
+#quizz-btn-container {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
+}
