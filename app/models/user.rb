@@ -10,12 +10,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-#  validates :username,
- #           uniqueness: true,
-  #          presence: true,
-   #         allow_blank: false,
-    #        length: { minimum: 3 }
-
+  validates :username,
+            uniqueness: true,
+            presence: true,
+            allow_blank: false,
+            length: { minimum: 3 }
 
   def score_of(language)
     language.quizzes.where(user: self).pluck(:score).sum
