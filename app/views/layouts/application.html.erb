@@ -19,7 +19,7 @@
         params[:action] != "index" && params[:controller] == "user_words" %>
       <% @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
     <% else %>
-      <% @class = "regular" %>
+      <% @class = "regular-#{['beige', 'blue', 'pink'].sample}" %>
     <% end %>
 
   <body class="<%= @class  %>">
