@@ -16,8 +16,11 @@
         <div class="white-container mt-5 text-center pill-button">Flashcard</div>
       <% end %>
     <% else %>
-      <%= link_to 'Flashcard', "#", class: "link disabled-link" %>
-        <div class="white-container mt-5 text-center"></div>
+    
+        <div class="white-container mt-5 text-center pill-button">
+          <%= link_to 'Flashcard', "#", class: "link disabled-link" %>
+          </div>
+
     <% end %>
 
       <% if @can_take_quiz %>
