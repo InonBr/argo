@@ -1,6 +1,7 @@
 .quiz-start-p {
   font-style: $body-font;
   color: #606060;
+  font-weight: bold;
 }
 
 .quiz-answers {
@@ -42,4 +43,8 @@
 .i-like-big-dives-and-i-cannot-lie {
   height: 100vh;
   align-items: center;
+}
+
+.start-quiz {
+  font-weight: bold;
 }
