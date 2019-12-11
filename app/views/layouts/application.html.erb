@@ -17,7 +17,7 @@
 
     <% if  params[:action] != "starter" && params[:controller] == "quizzes" ||
         params[:action] != "index" && params[:controller] == "user_words" %>
-      <% @class = UserLanguage.find_by(user: User.last, active:true).language.name.downcase %>
+      <% @class = UserLanguage.find_by(user: current_user, active:true).language.name.downcase %>
     <% else %>
       <% @class = "regular-#{['beige', 'blue', 'pink'].sample}" %>
     <% end %>

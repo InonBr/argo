@@ -1,5 +1,5 @@
 <div class="white-container mt-5" style="position:relative;">
-  <%= image_tag "#{UserLanguage.find_by(user: User.last, active:true).language.name.downcase}-icon.png", class: "quiz-icon" %>
+  <%= image_tag "#{UserLanguage.find_by(user: current_user, active:true).language.name.downcase}-icon.png", class: "quiz-icon" %>
   <p>What does the slang <strong><%= @word.original %></strong> means?</p>
 </div>
 
