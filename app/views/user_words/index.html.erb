@@ -34,18 +34,18 @@
     </form>
   </div>
 
-  <!-- <ul> -->
-<div class="search-page">
-  <div class="list m-3">
-    <% @user_words.each do |user_word| %>
-      <div class="white-container mb-2 word-card d-flex justify-content-between">
-        <div class="left">
-          <strong><%= user_word.word.original %> </strong>
-          <p class="mt-1 text-left"><%= user_word.word.translation %></p>
+    <!-- <ul> -->
+  <div class="search-page">
+    <div class="list m-3">
+      <% @user_words.each do |user_word| %>
+        <div class="white-container mb-2 word-card d-flex justify-content-between" data-uw-id='<%= user_word.id %>'>
+          <div class="left">
+            <strong><%= user_word.word.original %> </strong>
+            <p class="mt-1 text-left"><%= user_word.word.translation %></p>
           </div>
-          <div class="right">
+          <div class="right" >
             <%= symbol(user_word.word.language.name) %>
-            <%= link_to user_word_path(user_word), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to user_word_path(user_word), method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
               <i class="fas fa-trash"></i>
             <% end %>
           </div>
