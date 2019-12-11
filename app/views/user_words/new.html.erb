@@ -1,31 +1,37 @@
-<div class="page">
-  <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-    <div class="flipper">
-      <div class="front">
-        <div class="content">
-
-          <% unless @out_of_words %>
-          <%= simple_form_for [@word, @user_word] do |f| %>
-            <h1><%= @word.original %></h1>
-            <%= text_area_tag "user_input", nil, class: 'guess-input' %>
-            <a href="" class="btn btn-primary flip">Show me the truth!</a>
-        </div>
-      </div>
-      <div class="back">
-        <div class="content">
-            <h1><%= @word.original %></h1>
-            <p> <%= @word.translation %></p>
-            <%= f.input :knew, as: :hidden %>
-            <%= f.input :removed, as: :hidden %>
-            <%= f.button :submit, value: "Knew it!", data: { knew: true }, class: 'btn btn-primary' %>
-            <%= f.button :submit, value:  "Not sure", data: { knew: false }, class: 'btn btn-primary'  %>
-            <%= f.button :submit, value:  "No Thanks", data: { removed: true }, class: 'btn btn-primary'  %>
-          <% end %>
-        <% else %>
-          <h1>You're out of words :/</h1>
-        <% end %>
-        </div>
-      </div>
-    </div>
+<div class="page-flashcard">
+  <% unless @out_of_words %>
+  <div class="white-container question_container ask-user-for-guess mb-2">
+    <h4>What do you think <strong>"<%= @word.original %>"</strong> means?</h4>
   </div>
+    <%= simple_form_for [@word, @user_word] do |f| %>
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+          <div class="front">
+            <div class="content">
+                <%= text_area_tag "user_input", nil, class: 'guess-input' %>
+            </div>
+          </div>
+          <div class="back">
+            <div class="content">
+              <p> <%= @word.translation %></p>
+              <%= f.input :knew, as: :hidden %>
+              <%= f.input :removed, as: :hidden %>
+              <%= f.button :submit, value:  "Don't Show Again", data: { removed: true }, class: 'no_show_text'  %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flip_buttons">
+        <div class="flip_buttons_back d-none">
+          <%= f.button :submit, value: "Knew it!", data: { knew: true }, class: 'pill-button' %>
+          <%= f.button :submit, value:  "Not sure", data: { knew: false }, class: 'pill-button'  %>
+        </div>
+        <div class="flip_buttons_front">
+          <div class="pill-button flip py-1 px-2">Check</div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h1>You're out of words :/</h1>
+  <% end %>
 </div>
